@@ -6,8 +6,10 @@ Integrantes:
   Corrales Meza Josué
   Mendoza González Mario
   Rosas Gomez Fernando
+  
  Proyecto:
   .
   .
   .
   
+Fecha de Entrega 25-01-2021
