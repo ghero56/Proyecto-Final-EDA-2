@@ -20,3 +20,25 @@ Id: 11
 Ubicacion: D.G.T.I.C.
 Id: 12
 Ubicacion: Facultad de Ciencias
+Id: 1
+Ubicacion: Metro CU ESTACION PRINCIPAL
+Id: 2
+Ubicacion: Facultad de ciencias ALUMNOS
+Id: 3
+Ubicacion: Facultad de ciencias PROFESORES
+Id: 4
+Ubicacion: Facultad de ciencias ALUMNOS
+Id: 5
+Ubicacion: Anexo de ingenieria
+Id: 6
+Ubicacion: Facultad de Contaduria y Administracion
+Id: 7
+Ubicacion: Escuela de Trabajo Social
+Id: 9
+Ubicacion: Metrobus CU
+Id: 10
+Ubicacion: Educacion a Distancia
+Id: 11
+Ubicacion: D.G.T.I.C.
+Id: 12
+Ubicacion: Facultad de Ciencias

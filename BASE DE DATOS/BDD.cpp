@@ -1,7 +1,9 @@
-//Para compilar usar:
-//g++ BDD.cpp sqlite3.o -Ipath\to\sqlite3
+ //Para compilar usar (Windows):
+ //g++ BDD.cpp sqlite3.o -Ipath\to\sqlite3
+ //Para compilar usar (Linux):
+ //g++ -Wall sqlite3.o -ldl -pthread -o salida.out BDD.cpp
 #include <iostream>
-#include <string>
+// #include <string>
 #include <fstream>
 #include "sqlite3.h"
 
@@ -53,43 +55,43 @@ int main() {
 
     // Crea la tabla de SQLite
     sql = "CREATE TABLE Rutas ("  \
-        "Id INT PRIMARY KEY NOT NULL," \
+        "id INT PRIMARY KEY NOT NULL," \
         "Ubicacion TEXT  NOT NULL," \
         "Ruta INT NOT NULL);";
 
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion', 'Ruta') VALUES ('1','Metro CU ESTACION PRINCIPAL', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('Metro CU ESTACION PRINCIPAL', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('2','Facultad de ciencias ALUMNOS', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES (Facultad de ciencias ALUMNOS', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('3','Facultad de ciencias PROFESORES', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('3','Facultad de ciencias PROFESORES', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('4','Facultad de ciencias ALUMNOS', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('4','Facultad de ciencias ALUMNOS', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('5','Anexo de ingenieria', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('5','Anexo de ingenieria', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('6','Facultad de Contaduria y Administracion', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('6','Facultad de Contaduria y Administracion', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('7','Escuela de Trabajo Social', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('7','Escuela de Trabajo Social', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('9','Metrobus CU', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('9','Metrobus CU', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('10','Educacion a Distancia', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('10','Educacion a Distancia', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('11','D.G.T.I.C.', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('11','D.G.T.I.C.', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-    sql = "INSERT INTO Rutas ('Id', 'Ubicacion') VALUES ('12','Facultad de Ciencias', '2');";
+    sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('12','Facultad de Ciencias', '2');";
     rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
 
