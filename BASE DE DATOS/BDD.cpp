@@ -93,13 +93,10 @@ int main() {
     if (rc) {
         cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
         sqlite3_close(db);
-
         return(1);
     }
 
     zErrMsg = create(db , rc , sql , zErrMsg);
-
-    // char* err_msg = NULL;
 
     if (rc != SQLITE_OK)
     {
