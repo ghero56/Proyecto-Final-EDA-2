@@ -98,12 +98,12 @@ int main() {
 
     create(db , rc , sql , zErrMsg);
 
-    char* err_msg = NULL;
+    // char* err_msg = NULL;
 
     if (rc != SQLITE_OK)
     {
-        fprintf(stderr, "SQL error: %s\n", err_msg);
-        sqlite3_free(err_msg);
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
     }
     else
     {
