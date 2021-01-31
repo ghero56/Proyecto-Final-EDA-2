@@ -1,5 +1,5 @@
 #include <iostream>
-// #include <string>
+#include <cstring>
 #include <fstream>
 #include "sqlite3.h"
 
@@ -20,8 +20,8 @@ int callback_priuso(void* NotUsed, int argc, char** argv, char** azColName)
     // Mostrar nombre de columna y valor
     cout << azColName[i] << ": " << argv[i] << endl;
     // Escribir en archivo nombre de columna y valor
-    if( i%2 == 0 && i != 0) archivo << "\n";
-    else archivo << argv[i+1] << ", ";
+    if(strcmp( azColName[i], "Ruta") == 0) archivo << argv[i] << "\n";
+    else archivo << argv[i] << ", ";
   }
   cout << endl;
 
@@ -67,7 +67,7 @@ char* crear_priuso( sqlite3* db, int rc, string sql, char* zErrMsg){
 
   sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de Ciencias', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_priuso, 0, &zErrMsg);
-  
+
   return zErrMsg;
 }
 
