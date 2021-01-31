@@ -1,30 +1,10 @@
-id, 1
-Ubicacion, Metro CU ESTACION PRINCIPAL
-Ruta, 3
-id, 2
-Ubicacion, Facultad de ciencias ALUMNOS
-Ruta, 3
-id, 3
-Ubicacion, Facultad de ciencias PROFESORES
-Ruta, 3
-id, 4
-Ubicacion, Anexo de ingenieria
-Ruta, 3
-id, 5
-Ubicacion, Facultad de Contaduria y Administracion
-Ruta, 3
-id, 6
-Ubicacion, Escuela de Trabajo Social
-Ruta, 3
-id, 7
-Ubicacion, Metrobus CU
-Ruta, 3
-id, 8
-Ubicacion, Educacion a Distancia
-Ruta, 3
-id, 9
-Ubicacion, D.G.T.I.C.
-Ruta, 3
-id, 10
-Ubicacion, Facultad de Ciencias
-Ruta, 3
+Metro CU ESTACION PRINCIPAL, 3, 
+Facultad de ciencias ALUMNOS, 3, 
+Facultad de ciencias PROFESORES, 3, 
+Anexo de ingenieria, 3, 
+Facultad de Contaduria y Administracion, 3, 
+Escuela de Trabajo Social, 3, 
+Metrobus CU, 3, 
+Educacion a Distancia, 3, 
+D.G.T.I.C., 3, 
+Facultad de Ciencias, 3, 

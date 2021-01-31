@@ -19,8 +19,9 @@ int callback(void* NotUsed, int argc, char** argv, char** azColName)
   for (int i = 0; i < argc; i++) {
     // Mostrar nombre de columna y valor
     cout << azColName[i] << ": " << argv[i] << endl;
-    // Escribir nombre de columna y valor
-    archivo << azColName[i] << ", " << argv[i] << endl;
+    // Escribir en archivo nombre de columna y valor
+    if( i%2 == 0 && i != 0) archivo << "\n";
+    else archivo << argv[i+1] << ", ";
   }
   cout << endl;
 
@@ -73,38 +74,35 @@ char* create( sqlite3* db, int rc, string sql, char* zErrMsg){
 
 int main() {
 
-    sqlite3* db;
+  sqlite3* db;
 
-    // Muestra mensajes de error
-    char* zErrMsg = 0;
-    int rc;
-    string sql;
+  // Muestra mensajes de error
+  char* zErrMsg = 0;
+  int rc;
+  string sql;
 
-    rc = sqlite3_open("BDRuta.db", &db);
+  rc = sqlite3_open("BDRuta.db", &db);
 
-    if (rc) {
-        cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
-        sqlite3_close(db);
-        return(1);
-    }
-
-    zErrMsg = create(db , rc , sql , zErrMsg);
-
-    if (rc != SQLITE_OK)
-    {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-    }
-    else
-    {
-        fprintf(stdout, "Datos insertados!\n");
-    }
-
-    string sqli = "SELECT * FROM RutasPumabus; ";
-    rc = sqlite3_exec(db, sqli.c_str(), callback, 0, &zErrMsg);
-
+  if (rc) {
+    cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
     sqlite3_close(db);
-    return 0;
+    return(1);
+  }
+
+  zErrMsg = create(db , rc , sql , zErrMsg);
+
+  if (rc != SQLITE_OK)
+  {
+    fprintf(stderr, "SQL error: %s\n", zErrMsg);
+    sqlite3_free(zErrMsg);
+  }
+  else fprintf(stdout, "Datos insertados!\n");
+
+  string sqli = "SELECT * FROM RutasPumabus; ";
+  rc = sqlite3_exec(db, sqli.c_str(), callback, 0, &zErrMsg);
+
+  sqlite3_close(db);
+  return 0;
 }
 
 //Para compilar usar (Windows):
