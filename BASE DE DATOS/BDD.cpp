@@ -34,7 +34,7 @@ int callback(void* NotUsed, int argc, char** argv, char** azColName)
     return 0;
 }
 
-void create( sqlite3* db, int rc, string sql, char* zErrMsg){
+char* create( sqlite3* db, int rc, string sql, char* zErrMsg){
   sql = "CREATE TABLE Rutas ("  \
       "id INT PRIMARY KEY NOT NULL," \
       "Ubicacion TEXT  NOT NULL," \
@@ -76,6 +76,7 @@ void create( sqlite3* db, int rc, string sql, char* zErrMsg){
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
   // Crea la tabla de SQLite
+  return zErrMsg;
 }
 
 int main() {
@@ -96,7 +97,7 @@ int main() {
         return(1);
     }
 
-    create(db , rc , sql , zErrMsg);
+    zErrMsg = create(db , rc , sql , zErrMsg);
 
     // char* err_msg = NULL;
 
