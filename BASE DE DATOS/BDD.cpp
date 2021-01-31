@@ -35,44 +35,42 @@ int callback(void* NotUsed, int argc, char** argv, char** azColName)
 }
 
 char* create( sqlite3* db, int rc, string sql, char* zErrMsg){
-  sql = "CREATE TABLE Rutas ("  \
-      "id INT PRIMARY KEY NOT NULL," \
-      "Ubicacion TEXT  NOT NULL," \
-      "Ruta INT NOT NULL);";
+  sql = "DROP TABLE IF EXISTS Ruta3; "
+      "CREATE TABLE Ruta3 ("  \
+      "id INTEGER PRIMARY KEY NOT NULL, " \
+      "Ubicacion TEXT NOT NULL, " \
+      "Ruta INTEGER NOT NULL );";
 
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('Metro CU ESTACION PRINCIPAL', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Metro CU ESTACION PRINCIPAL', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES (Facultad de ciencias ALUMNOS', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Facultad de ciencias ALUMNOS', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('3','Facultad de ciencias PROFESORES', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Facultad de ciencias PROFESORES', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('4','Facultad de ciencias ALUMNOS', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Anexo de ingenieria', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('5','Anexo de ingenieria', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Facultad de Contaduria y Administracion', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('6','Facultad de Contaduria y Administracion', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Escuela de Trabajo Social', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('7','Escuela de Trabajo Social', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Metrobus CU', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('9','Metrobus CU', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Educacion a Distancia', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('10','Educacion a Distancia', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('D.G.T.I.C.', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('11','D.G.T.I.C.', '2');";
-  rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
-
-  sql = "INSERT INTO Rutas ( 'Ubicacion', 'Ruta') VALUES ('12','Facultad de Ciencias', '2');";
+  sql = "INSERT INTO Ruta3 ( 'Ubicacion', 'Ruta') VALUES ('Facultad de Ciencias', '3');";
   rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
   // Crea la tabla de SQLite
@@ -108,7 +106,7 @@ int main() {
         fprintf(stdout, "Datos insertados!\n");
     }
 
-    string sqli = "SELECT * FROM Rutas; ";
+    string sqli = "SELECT * FROM Ruta3; ";
     rc = sqlite3_exec(db, sqli.c_str(), callback, 0, &zErrMsg);
 
     sqlite3_close(db);
