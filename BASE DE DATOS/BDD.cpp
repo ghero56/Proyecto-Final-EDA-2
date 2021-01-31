@@ -90,7 +90,6 @@ int main() {
     rc = sqlite3_open("BDRuta.db", &db);
 
     if (rc) {
-
         cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
         sqlite3_close(db);
 
