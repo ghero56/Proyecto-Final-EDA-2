@@ -151,52 +151,48 @@ void lista::Borrarv(int v)
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void lista::Mostrarv()
 {
-   pnodo nodo = primero;
+  pnodo nodo = primero;
 
-   if(ListavVacia()) cout<<"\nLista vac�a"<<'\n'; // si hay datos para mostrar
-   else {
-	   while(nodo) { // mientras tenga datos la lista
-		   cout<<" Id:\t" <<nodo->Id<<"\n";
-		   cout<<" Estacion:\t"<<nodo->Estacion<<"\n";
-		   cout<<" Ruta:\t"<<nodo->Ruta;
-           cout << "\tadyacentes";
-           nodoa* temp = nodo->puntero;
+  if(ListavVacia()) cout<<"\nLista vacia"<<'\n'; // si hay datos para mostrar
+  else {
+	  while(nodo) { // mientras tenga datos la lista
+		  cout<<" Id:\t" <<nodo->Id<<"\n";
+		  cout<<" Estacion:\t"<<nodo->Estacion<<"\n";
+		  cout<<" Ruta:\t"<<nodo->Ruta;
+      cout << "\tadyacentes";
+      nodoa* temp = nodo->puntero;
 
-		   while(temp)
-           {
-		        cout<<"\t"<<temp->ady/*<<"peso: "<<temp->peso*/;
-			    temp=temp->siguiente;
-
-		   }
-           cout<<endl<<endl;
-           nodo = nodo->siguiente;
-       }
-     cout<<'\n';
-   }
-
+		  while(temp)
+      {
+        cout<<"\t"<<temp->ady/*<<"peso: "<<temp->peso*/;
+        temp=temp->siguiente;
+		  }
+      cout<<endl<<endl;
+      nodo = nodo->siguiente;
+    }
+    cout<<'\n';
+  }
 }
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 pnodo lista::Buscarv(int valor){
-	pnodo indice,n=NULL;
-	indice=primero;
+	pnodo indice , n=NULL;
+	indice = primero;
 	while(indice!=NULL){ // se recorre la lista  hasta encontrar el valor buscado
-		if(valor == indice->Id ){
-			return indice; // al encontar el valor  lo retorna
-			}
+		if(valor == indice->Id ) return indice; // al encontar el valor  lo retorna
 		indice=indice->siguiente;
 	}
- cout<<"\n no esta en la lista";
- return n; // si el valor buscado no esta en la lista retorna nulo
+  cout<<"\n no esta en la lista";
+  return n; // si el valor buscado no esta en la lista retorna nulo
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void lista::BorrarListav(){
 	pnodo nodo;
-   while(primero) { //mientras la lista tenda datos los borra
-      nodo = primero;
-      primero = nodo->siguiente;
-      delete nodo; // se libera la memoria de  cada nodo
-}
+  while(primero) { //mientras la lista tenda datos los borra
+    nodo = primero;
+    primero = nodo->siguiente;
+    delete nodo; // se libera la memoria de  cada nodo
+  }
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 bool lista::ListavVacia(){
@@ -204,29 +200,29 @@ bool lista::ListavVacia(){
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 int lista::CantidadVertices(){
-    pnodo nodo=primero;
-    int i=0;
-    while(nodo!=NULL){
-       i++;
-       nodo=nodo->siguiente;
-    }
-    return i;
+  pnodo nodo=primero;
+  int i=0;
+  while(nodo!=NULL){
+    i++;
+    nodo=nodo->siguiente;
+  }
+  return i;
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void lista::CrearMatrizAdyacencia(){
-     pnodo nodo=primero,nodotemp;
-     int i,j;
-     int cant=CantidadVertices();
-     for(i=0;i<cant;i++){
-         nodotemp=primero;
-       for(j=0;j<cant;j++){
-         MatrizAdyacente[i][j]=ExisteArco(nodo->Id,nodotemp->Id);
-         nodotemp=nodotemp->siguiente;
-       }
-        nodo=nodo->siguiente;
-     }
-     delete nodo;
-     delete nodotemp;
+  pnodo nodo=primero,nodotemp;
+  int i,j;
+  int cant=CantidadVertices();
+  for(i=0;i<cant;i++){
+    nodotemp=primero;
+    for(j=0;j<cant;j++){
+      MatrizAdyacente[i][j]=ExisteArco(nodo->Id,nodotemp->Id);
+      nodotemp=nodotemp->siguiente;
+    }
+    nodo=nodo->siguiente;
+  }
+  delete nodo;
+  delete nodotemp;
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 int lista::ExisteArco(int i,int f){
