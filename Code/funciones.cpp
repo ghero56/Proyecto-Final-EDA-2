@@ -9,7 +9,7 @@ void admin(){
     cout << "\n\n\t\t\tBienvenido a la red PUMA "
       "\n\t\t\t  (MODO ADMINISTRADOR)\n"
       "\n1) Ver rutas"
-      "\n2) A\u00F1adir estaciones"
+      "\n2) A\u00F1adir/Modificar estaciones"
       "\n3) Seleccionar punto de inicio y destino"
       "\n4) Guardar indicaciones"
       "\n5) Salir"
@@ -62,5 +62,5 @@ void regular(){
 }
 
 void menu1(){
-  
+
 }

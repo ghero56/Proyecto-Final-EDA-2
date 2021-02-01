@@ -8,8 +8,12 @@
 using namespace std;
 
 typedef struct _estacion{
-  
+  int id;
+  string nombre;
+  int ruta; // a la que pertenece
 } estacion;
+
+
 
 /* ---------- DEFINICIONES --------- */
 
