@@ -20,63 +20,58 @@ int mat_floyd_warshall[Max][Max];
 int visitado[Max];
 int marcado[Max];
 class nodo {
-
-   public:
+  public:
     int Id;
     string Estacion;
     int Ruta;
-    string NomEstacion;
-    int ruta;
-	nodoa *puntero;
+    nodoa *puntero;
     nodo *siguiente;
 	//constructor
     nodo(int v, string NomEstacion, int ruta, nodo *sig = NULL,nodoa *punt=NULL)
     {
-       Id = v;
-       Estacion = NomEstacion;
-       Ruta = ruta;
-       siguiente = sig;
-	   puntero=punt;
+      Id = v;
+      Estacion = NomEstacion;
+      Ruta = ruta;
+      siguiente = sig;
+      puntero=punt;
     }
-  // friend class listaa;
+    // friend class listaa;
     class lista;
 };
 
 typedef nodo *pnodo;
 
-class lista {
-   public:
-
-	   	   //listaa ad;
-
+class lista{
+  public:
+    //listaa ad;
     pnodo primero;
     //constructor
-	lista() { primero =  NULL; }// crea la lista vacia
-	//metodos
-	void Insertarv(int v, string NomRuta, int ruta); // insert
+    lista() { primero =  NULL; }// crea la lista vacia
+    //metodos
+    void Insertarv(int v, string NomRuta, int ruta); // insert
     void Borrarv(int v);// delete
     bool ListavVacia();  //empty
     void Mostrarv();// recorrer
     pnodo Buscarv( int v);// seek
     void BorrarListav(); //clear
     bool listavexiste(int i,int f);
-	void creararco(int i,int f,int peso);
-	void CrearMatrizAdyacencia();
-	int CantidadVertices();
-	int ExisteArco(int i,int f);
-	void mostrarmatriz();
-	bool BuscarAdy(pnodo aux,int ad);
-	void CrearMatrizCaminos();
-	void MostrarMatrizCaminos();
-	void RecorridoAnchura();
-	int NodoVisitado(int v, int t);
-	void RecorridoProfundidad();
-	void Floyd();
-	void Warshall();
-	void copiarMatrizCaminos();
-	void mostrar_mat_floyd_warshall();
-	int Posicion(int v);
-	bool marca(int ady ,int ident[Max],int i);
+    void creararco(int i,int f,int peso);
+    void CrearMatrizAdyacencia();
+  	int CantidadVertices();
+  	int ExisteArco(int i,int f);
+  	void mostrarmatriz();
+  	bool BuscarAdy(pnodo aux,int ad);
+  	void CrearMatrizCaminos();
+  	void MostrarMatrizCaminos();
+  	void RecorridoAnchura();
+  	int NodoVisitado(int v, int t);
+  	void RecorridoProfundidad();
+  	void Floyd();
+  	void Warshall();
+  	void copiarMatrizCaminos();
+  	void mostrar_mat_floyd_warshall();
+  	int Posicion(int v);
+  	bool marca(int ady ,int ident[Max],int i);
 };
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void lista::creararco(int i,int f,int peso){
@@ -117,7 +112,7 @@ void lista::Insertarv(int v, string NomRuta, int ruta)
    {
 	  primero = new nodo(v, NomRuta, ruta, primero);
    }else { if(v<=primero->Id){ //si el valor a insertar es menor que el
-	      primero =new nodo(v, NomRuta, ruta, primero) ;            //se inserta el nodo antes del primer dato de la lista
+	      primero =new nodo(v, NomRuta, ruta, primero) ; //se inserta el nodo antes del primer dato de la lista
 		}else{
 			//en caso contrario se busca el nodo que tenga un dato menor a valor
 			anterior = primero; // Avanzamos hasta que el siguiente tenga un valor mayor que valor
