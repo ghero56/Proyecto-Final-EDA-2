@@ -1,11 +1,10 @@
-#include "definiciones.h"
-
-/* ---------- MENUS ---------- */
+#include "definiciones.hpp"
 
 /* ---------- menu admin --------- */
 void admin(){
   int op;
   do{
+    system("clear");
     cout << "\n\n\t\t\tBienvenido a la red PUMA "
       "\n\t\t\t  (MODO ADMINISTRADOR)\n"
       "\n1) Ver rutas"
@@ -17,6 +16,7 @@ void admin(){
     switch(op){
       case 1:
         cout << "Mostrando Rutas..." << '\n';
+        menu1();
       break;
       case 2:
       break;
@@ -34,7 +34,8 @@ void admin(){
   }while(op != 11);
 }
 /* ---------- menu usuario --------- */
-void regular(){
+void regular( ){
+  system("clear");
   int op;
   do{
     cout << "\n\n\t\t\tBienvenido a la red PUMA\n"
@@ -46,6 +47,7 @@ void regular(){
     switch(op){
       case 1:
         cout << "Mostrando Rutas..." << '\n';
+        menu1();
       break;
       case 2:
       break;
@@ -62,5 +64,27 @@ void regular(){
 }
 
 void menu1(){
+  system("clear");
+  int op;
+  cout << "Mostrando estaciones actuales" << '\n';
+  cout << "(En caso de querer elegir punto de inicio"
+        " y destino presiona 1 en otro caso presiona 2)" << '\n';
+  std::cin >> op;
+  switch (op) {
+    case 1:
+      menuPtP();
+    break;
+    case 2:
+    return;
+  }
+}
+
+void menuPtP(){
+  system("clear");
+
+}
+
+void menu_add(){
+  system("clear");
 
 }
