@@ -9,7 +9,7 @@
 /* ---------- Funcion main --------- */
 int main(int argc, char const *argv[])
 {
-  // Grafo g;
+  Grafo g;
   if(strcmp(argv[1],"admin") == 0) admin( );
   else regular( );
   system("clear");
