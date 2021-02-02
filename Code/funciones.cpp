@@ -1,5 +1,57 @@
 #include "grafo.cpp"
 
+int callback_print(void* NotUsed, int argc, char** argv, char** azColName)
+{
+  for (int i = 0; i < argc; i++) {
+    cout << azColName[i] << ": " << argv[i] << endl;
+  }
+  cout << endl;
+
+  return 0;
+}
+
+char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg){
+  sql = "DROP TABLE IF EXISTS RutasPumabus; "
+      "CREATE TABLE RutasPumabus ("  \
+      "id INTEGER PRIMARY KEY NOT NULL, " \
+      "Ubicacion TEXT NOT NULL, " \
+      "Ruta INTEGER NOT NULL );";
+
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Metro CU ESTACION PRINCIPAL', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de ciencias ALUMNOS', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de ciencias PROFESORES', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Anexo de ingenieria', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de Contaduria y Administracion', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Escuela de Trabajo Social', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Metrobus CU', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Educacion a Distancia', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'D.G.T.I.C.', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de Ciencias', '3' );";
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+
+  return zErrMsg;
+}
+
 /* ---------- menu admin --------- */
 void admin(){
   int op;

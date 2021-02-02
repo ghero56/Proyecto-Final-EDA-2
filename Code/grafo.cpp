@@ -6,7 +6,7 @@ Grafo::Grafo()
 }
 
 
-bool Grafo::add_vertice( Vertice v )
+bool Grafo::add_estacion( Vertice v )
 {
 	auto ret = vertices.insert( { v.get_nombre(), v } );
 	// 'map' no permite duplicados, así que no hay necesidad de buscarlos
@@ -28,8 +28,10 @@ bool Grafo::add_estacion_dirigida( string eje1, string eje2 ){
 void Grafo::print()
 {
 	for( auto v : this->vertices ){
-		cout << "\n" << v.second.get_nombre() << ": ";
-		v.second.print_vecinos();
+		if ( strcmp(v.second.get_nombre().c_str() , "Null") == 1) {
+			cout << "\n" << v.second.get_nombre() << "-> ";
+			v.second.print_vecinos();
+		}
 	}
 	cout << "\n\n";
 }
@@ -46,7 +48,7 @@ Vertice* Grafo::get_vertice( string nombre )
 	return &(v->second);
 }
 
-void Grafo::bfs( string inicio ){
+void Grafo::bfs( string inicio, string fin ){
 	for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
 		(v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
 		(v->second).set_distancia( 0 );
@@ -58,6 +60,9 @@ void Grafo::bfs( string inicio ){
 	deque<string> queue;
 	queue.push_back( inicio );
 
+	cout << queue.front();
+	// vertice->get_nombre() << dentro del if dentro del while
+
 	while( !queue.empty() ){
 		string next_vertice = queue.front();
 		queue.pop_front();
@@ -67,8 +72,11 @@ void Grafo::bfs( string inicio ){
 			Vertice* vecino = get_vertice( w->get_nombre() );
 
 			if( vecino->get_color() == Vertice::bandera::NEGRO ){
-				cout << "encontrado: " << vertice->get_nombre() << " con vecino: " << 
-				vecino->get_nombre() <<'\n';
+				if (strcmp(vecino->get_nombre().c_str(), fin.c_str()) == 0) {
+					cout << " -> "<< vecino->get_nombre() << " ";
+					break;
+				}
+				cout << " -> "<< vecino->get_nombre();
 				vecino->set_color( Vertice::bandera::VISITADO );
 				vecino->set_distancia( vertice->get_distancia() + 1 );
 				vecino->set_predecesor( vertice->get_nombre() );
@@ -76,6 +84,7 @@ void Grafo::bfs( string inicio ){
 	    }
 	  }
 		vertice->set_color( Vertice::bandera::BLANCO );
-		cout << "terminado " << vertice->get_nombre() << '\n';
 	}
+
+	cout << '\n';
 }

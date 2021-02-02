@@ -10,6 +10,8 @@
 #include <utility>
 #include <map>
 #include <deque>
+#include <fstream>
+#include "sqlite3.h"
 
 using namespace std;
 
@@ -59,7 +61,7 @@ class Grafo{
 	public:
 		Grafo();
 
-		bool add_vertice( Vertice v );
+		bool add_estacion( Vertice v );
 		bool add_estacion_dirigida( string, string );
 
 		map<string, Vertice> *get_vertices();
@@ -67,13 +69,13 @@ class Grafo{
 		Vertice* get_vertice( string );
 
 		void print();
-		void bfs( string );
+		void bfs( string, string );
 };
 
 /* ---------- Base de datos ---------- */
 class BDD{
   private:
-    bool create();
+    sqlite3* create();
   public:
     void start();
     void update();
