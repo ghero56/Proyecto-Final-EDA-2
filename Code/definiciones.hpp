@@ -4,7 +4,9 @@
 #pragma once
 /* ---------- Librerias ---------- */
 #include <iostream>
+#include <stdlib.h>
 #include <cstring>
+#include <string>
 #include <omp.h>
 #include <list>
 #include <utility>
@@ -83,11 +85,13 @@ class BDD{
   private:
     sqlite3* create();
   public:
-    void start();
+    void start(Grafo*);
     void update();
     void erase();
     void add();
 };
+void insertar( string , Grafo* );
+int serializar(void*, int, char**, char**);
 /* ---------- MENUS ---------- */
 void admin( Grafo* g );
 void regular( Grafo* g );

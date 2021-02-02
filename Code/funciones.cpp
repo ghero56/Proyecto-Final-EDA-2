@@ -10,10 +10,53 @@ int callback_print(void* NotUsed, int argc, char** argv, char** azColName)
   return 0;
 }
 
-bool fileExists( string name )
+int serializar(void* NotUsed, int argc, char** argv, char** azColName)
 {
-    ifstream f(name.c_str());
-    return f.good();
+  string extension_archivo = ".csv";
+  ofstream archivo;
+  archivo.open("Ruta" + extension_archivo, ios::app); //Archivo donde se guardara toda la informacion
+
+  for (int i = 0; i < argc; i++) {
+    // cout << azColName[i] << ": " << argv[i] << endl;
+    if(strcmp( azColName[i], "Ruta") == 0) archivo << argv[i] << "\n";
+    else archivo << argv[i] << ", ";
+  }
+
+  archivo.close();
+  return 0;
+}
+
+void insertar( string archivo, Grafo* g){
+  FILE* a = fopen( archivo.c_str() , "r" );
+  if (a == NULL) {
+    fclose(a);
+    return;
+  }
+
+  char nombre[80];
+  int id, ruta, i = 0;
+  while(fscanf( a, "%d, %79[^,], %d\n", &id, &nombre, &ruta ) != EOF){
+    g->add_estacion( Vertice( nombre , id, ruta) );
+    i++;
+  }
+
+  for(int j = 1; j < i; j++){
+    g->add_estacion_dirigida(g->get_estacion_por_id(j) , g->get_estacion_por_id(j+1));
+  }
+
+  g->bfs(g->get_estacion_por_id(1),g->get_estacion_por_id(i));
+
+  fclose(a);
+}
+
+bool fileExists( string nombre )
+{
+  FILE* a = fopen( nombre.c_str() , "r" );
+  if (a == NULL) {
+    return false;
+  }
+  fclose(a);
+  return true;
 }
 
 char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg){
