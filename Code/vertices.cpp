@@ -1,10 +1,10 @@
 #include "definiciones.hpp"
 
-Vertice::Vertice( string nombre )
+Vertice::Vertice( string nombre, int id, int ruta )
 {
-	item.id = 0;
+	item.id = id;
 	item.nombre = nombre;
-	item.ruta = 0;
+	item.ruta = ruta;
 }
 
 void Vertice::add_vecino( Vertice v )
@@ -15,6 +15,10 @@ void Vertice::add_vecino( Vertice v )
 list<Vertice>* Vertice::get_vecinos()
 {
 	return &(vecinos);
+}
+
+int Vertice::get_ruta(){
+	return this->item.ruta;
 }
 
 string Vertice::get_nombre()
@@ -46,7 +50,7 @@ void Vertice::set_predecesor( string predecesor ) // in lab
 
 int Vertice::get_distancia() // in lab
 {
-	return this->distancia;
+	return this->item.id;
 }
 
 Vertice::bandera Vertice::get_color() // in lab

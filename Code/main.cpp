@@ -15,19 +15,20 @@ int main(int argc, char const *argv[])
   base.start();
   array<string, 5> vertices={"Ciencias","CU","Ing","UNAM","Metro"};
 
+  int i = 0;
 	for( auto& v : vertices ){
-		g.add_estacion( Vertice( v ) );  // se añaden los vertices al grafo
+		g.add_estacion( Vertice( v , i, 3) );  // se añaden los vertices al grafo
+    ++i;
 	}
 
   g.add_estacion_dirigida( "Ciencias", "CU" );
   g.add_estacion_dirigida( "CU", "Ing");
   g.add_estacion_dirigida( "Ing", "UNAM" );
   g.add_estacion_dirigida( "UNAM", "Metro" );
+  g.add_estacion_dirigida( "Metro", "Ciencias" );
 
-  g.print(); // imprimimos
+  if(strcmp(argv[1],"admin") == 0) admin( &g );
+  else regular( &g );
 
-	g.bfs( "CU", "UNAM" );
-  //if(strcmp(argv[1],"admin") == 0) admin( );
-  //else regular( );
   return 0;
 }

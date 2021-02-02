@@ -12,6 +12,7 @@
 #include <deque>
 #include <fstream>
 #include "sqlite3.h"
+#include <filesystem>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ class Vertice{
 		mutable string predecesor{ "Null" };
 
 	public:
-		Vertice( string name );
+		Vertice( string , int, int);
 		string get_nombre();
 
 		void  add_vecino( Vertice );
@@ -47,16 +48,19 @@ class Vertice{
 		void  set_distancia( int );
 		void  set_color( Vertice::bandera );
 		void  set_predecesor( string );
-		int  get_distancia();
+    int      get_ruta();
+		int      get_distancia();
 		bandera  get_color();
-		string  get_predecesor();
-    void print_vecinos();
+		string   get_predecesor();
+    void     print_vecinos();
 };
 
 class Grafo{
 	private:
 		mutable map<string, Vertice> vertices;
 		mutable map<string, int> weights;
+
+    int len = 0;
 
 	public:
 		Grafo();
@@ -67,6 +71,8 @@ class Grafo{
 		map<string, Vertice> *get_vertices();
 
 		Vertice* get_vertice( string );
+    string get_estacion_por_id( int );
+    int get_len();
 
 		void print();
 		void bfs( string, string );
@@ -83,10 +89,10 @@ class BDD{
     void add();
 };
 /* ---------- MENUS ---------- */
-void admin();
-void regular();
-void menu1();
-void menuPtP();
-void menu_add();
+void admin( Grafo* g );
+void regular( Grafo* g );
+void menu1( Grafo* g );
+void menuPtP( Grafo* g );
+void menu_add( Grafo* g );
 
 #endif

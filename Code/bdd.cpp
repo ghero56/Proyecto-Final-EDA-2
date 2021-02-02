@@ -1,32 +1,43 @@
 #include "funciones.cpp"
 
 sqlite3* BDD::create(){
-  try{
+  sqlite3* db;
+  if (fileExists("bdd_unam.db")) {
     system("cp ./bdd_unam.db ./bdd_unam_backup.db");
-    sqlite3* db;
     int rc = sqlite3_open("bdd_unam.db", &db);
+    char* zErrMsg;
 
-    if (rc) {
+    if (rc != SQLITE_OK) {
       cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
       sqlite3_close(db);
+      sqlite3_free(zErrMsg);
       return NULL;
     }
-    return db;
-  }catch(...){
-    sqlite3* db;
+  }else if(fileExists("bdd_unam_backup.db")){
+    system("cp ./bdd_unam_backup.db ./bdd_unam.db");
     int rc = sqlite3_open("bdd_unam.db", &db);
+    char* zErrMsg;
 
-    if (rc) {
+    if (rc != SQLITE_OK) {
       cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
       sqlite3_close(db);
+      sqlite3_free(zErrMsg);
       return NULL;
     }
+  }else{
+    int rc = sqlite3_open("bdd_unam.db", &db);
     string sql;
     char* zErrMsg = crear_primer_uso(db,rc,sql,zErrMsg);
-    sqlite3_free(zErrMsg);
+    system("cp ./bdd_unam.db ./bdd_unam_backup.db");
 
-    return db;
+    if (rc != SQLITE_OK) {
+      cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
+      sqlite3_close(db);
+      sqlite3_free(zErrMsg);
+      return NULL;
+    }
   }
+  return db;
 }
 
 void BDD::start(){
@@ -54,6 +65,7 @@ void BDD::update(){
 
   sqlite3_close(db);
 }
+
 void BDD::erase(){
   auto db = create();
   string sql;
@@ -62,6 +74,7 @@ void BDD::erase(){
 
   sqlite3_close(db);
 }
+
 void BDD::add(){
   auto db = create();
   string sql;
