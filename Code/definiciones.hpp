@@ -58,23 +58,28 @@ class Grafo{
 
 	public:
 		Grafo();
-	//	Grafo( vector<Vertice> vertices );
+
 		bool add_vertice( Vertice v );
-		// bool add_estacion( string edge1, string edge2 );
 		bool add_estacion_dirigida( string, string );
-		// bool add_edge_weighted( string edge1, string edge2, int weight );
 
 		map<string, Vertice> *get_vertices();
 
 		Vertice* get_vertice( string );
 
 		void print();
-		// void bfs_printBack( string start );
 		void bfs( string );
 };
 
 /* ---------- Base de datos ---------- */
-
+class BDD{
+  private:
+    bool create();
+  public:
+    void start();
+    void update();
+    void erase();
+    void add();
+};
 /* ---------- MENUS ---------- */
 void admin();
 void regular();

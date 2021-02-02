@@ -25,14 +25,14 @@ bool Grafo::add_estacion_dirigida( string eje1, string eje2 ){
 	return false;
 }
 
-/*void Grafo::print()
+void Grafo::print()
 {
 	for( auto v : this->vertices ){
 		cout << "\n" << v.second.get_nombre() << ": ";
-		v.second.print_neighbors();
+		v.second.print_vecinos();
 	}
 	cout << "\n\n";
-}*/
+}
 
 map<string, Vertice>* Grafo::get_vertices()
 {
@@ -53,36 +53,29 @@ void Grafo::bfs( string inicio ){
 		(v->second).set_predecesor("Null");
 	}
 
-	get_vertice( inicio )->set_color( Vertice::bandera::VISITADO ); // iniciamos a A
+
+	get_vertice( inicio )->set_color( Vertice::bandera::VISITADO );
 	deque<string> queue;
 	queue.push_back( inicio );
 
-	while( not queue.empty() ){ // mientras tenga elementos
-	// el metodo empty ya viene en la clase deque
-		string next_vertex = queue.front(); // elemento siguiente
-	  // obtenemos el NOMBRE asociado al vértice de trabajo ...
-		queue.pop_front(); // sale el elem
-	  // (desencolar toma dos operaciones: .front() y .pop_front())
-		Vertice* vertex = get_vertice( next_vertex ); // creamos un vertice con el obtenido en la cola
-	  // obtenemos una REFERENCIA al vértice de trabajo ...
-		list<Vertice>* v = vertex->get_vecinos(); // obtenemos sus vecinos en una lista
-		// obtenemos el original de la LISTA de vértices vecinos ...
-		for( auto w = v->begin(); w != v->end(); ++w ){ // recorremos la lista
-			Vertice* neighbor = get_vertice( w->get_nombre() );
+	while( !queue.empty() ){
+		string next_vertice = queue.front();
+		queue.pop_front();
+		Vertice* vertice = get_vertice( next_vertice );
+		list<Vertice>* v = vertice->get_vecinos();
+		for( auto w = v->begin(); w != v->end(); ++w ){
+			Vertice* vecino = get_vertice( w->get_nombre() );
 
-			if( neighbor->get_color() == Vertice::bandera::NEGRO ){
-			// si sigue sin ser descubierto
-				neighbor->set_color( Vertice::bandera::VISITADO ); // lo ponemos en gris
-				// vertice descubierto ...
-				neighbor->set_distancia( vertex->get_distancia() + 1 );
-				// establecemos la distancia desde 'inicio' ...
-				neighbor->set_predecesor( vertex->get_nombre() ); // es v
-				// establecemos al predecesor ...
-				queue.push_back( neighbor->get_nombre() );
-				// encolamos al vértice recién descubierto
+			if( vecino->get_color() == Vertice::bandera::NEGRO ){
+				cout << "encontrado: " << vertice->get_nombre() << " con vecino: " << 
+				vecino->get_nombre() <<'\n';
+				vecino->set_color( Vertice::bandera::VISITADO );
+				vecino->set_distancia( vertice->get_distancia() + 1 );
+				vecino->set_predecesor( vertice->get_nombre() );
+				queue.push_back( vecino->get_nombre() );
 	    }
 	  }
-		vertex->set_color( Vertice::bandera::BLANCO );
-		// vértice visitado
+		vertice->set_color( Vertice::bandera::BLANCO );
+		cout << "terminado " << vertice->get_nombre() << '\n';
 	}
 }
