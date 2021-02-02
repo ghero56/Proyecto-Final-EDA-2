@@ -1,4 +1,4 @@
-#include "definiciones.hpp"
+#include "grafo.cpp"
 
 /* ---------- menu admin --------- */
 void admin(){
@@ -69,7 +69,7 @@ void menu1(){
   cout << "Mostrando estaciones actuales" << '\n';
   cout << "(En caso de querer elegir punto de inicio"
         " y destino presiona 1 en otro caso presiona 2)" << '\n';
-  std::cin >> op;
+  cin >> op;
   switch (op) {
     case 1:
       menuPtP();

@@ -34,11 +34,11 @@ class Vertice{
 
 	public:
 		Vertice( string name );
-		string get_name();
+		string get_nombre();
 
 		void  add_vecino( Vertice );
     void  mostrar();
-//		void  print();
+	  void  print();
 
 		list<Vertice>* get_vecinos();
 
@@ -48,16 +48,17 @@ class Vertice{
 		int  get_distancia();
 		bandera  get_color();
 		string  get_predecesor();
+    void print_vecinos();
 };
 
-class Graph{
+class Grafo{
 	private:
 		mutable map<string, Vertice> vertices;
 		mutable map<string, int> weights;
 
 	public:
-		Graph();
-	//	Graph( vector<Vertice> vertices );
+		Grafo();
+	//	Grafo( vector<Vertice> vertices );
 		bool add_vertice( Vertice v );
 		// bool add_estacion( string edge1, string edge2 );
 		bool add_estacion_dirigida( string, string );
