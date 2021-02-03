@@ -10,14 +10,13 @@
 int main(int argc, char const *argv[])
 {
   Grafo g;
-  BDD base;  base.start( &g );
+  BDD base;
+  int max = base.start( &g );
 
-  // g.bfs(g.get_estacion_por_id(1),g.get_estacion_por_id(10));
+  cout << max << endl;
 
-  g.bfs("Anexo de ingenieria" , "D.G.T.I.C.");
-
-  //if(strcmp(argv[1],"admin") == 0) admin( &g );
-  //else regular( &g );
+  if(strcmp(argv[1],"admin") == 0) admin( base, &g , max);
+  else regular( base, &g , max);
 
   return 0;
 }

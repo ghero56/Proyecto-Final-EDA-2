@@ -40,7 +40,7 @@ sqlite3* BDD::create(){
   return db;
 }
 
-void BDD::start(Grafo* g){
+int BDD::start(Grafo* g){
   if(fileExists("Rutas.csv")){
     system("rm Ruta.csv");
   }
@@ -57,10 +57,11 @@ void BDD::start(Grafo* g){
     sqlite3_free(zErrMsg);
   }
 
-  insertar( "Ruta.csv" , g );
+  int i = insertar( "Ruta.csv" , g );
 
   system("rm Ruta.csv");
   sqlite3_close(db);
+  return i;
 }
 
 void BDD::update(){

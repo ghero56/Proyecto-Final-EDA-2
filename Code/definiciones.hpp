@@ -85,18 +85,18 @@ class BDD{
   private:
     sqlite3* create();
   public:
-    void start(Grafo*);
+    int start(Grafo*);
     void update();
     void erase();
     void add();
 };
-void insertar( string , Grafo* );
+int insertar( string , Grafo* );
 int serializar(void*, int, char**, char**);
 /* ---------- MENUS ---------- */
-void admin( Grafo* g );
-void regular( Grafo* g );
-void menu1( Grafo* g );
-void menuPtP( Grafo* g );
-void menu_add( Grafo* g );
+void admin( BDD, Grafo* , int );
+void regular( BDD , Grafo* , int );
+void menu1( Grafo* , int );
+void menuPtP( Grafo* , int );
+void menu_add( Grafo* );
 
 #endif

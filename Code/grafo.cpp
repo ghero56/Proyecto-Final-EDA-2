@@ -69,8 +69,7 @@ void Grafo::bfs( string inicio, string fin ){
 	deque<string> queue;
 	queue.push_back( inicio );
 
-	cout << '\n';
-	cout << "(id: " << get_vertice( queue.front() )->get_distancia()+1 << ") "
+	cout << "\n" << get_vertice( queue.front() )->get_distancia() << ") "
 	<<queue.front() << " (ruta: " << get_vertice( queue.front() )->get_ruta() << ")";
 	// vertice->get_nombre() << dentro del if dentro del while
 
@@ -84,14 +83,13 @@ void Grafo::bfs( string inicio, string fin ){
 
 			if( vecino->get_color() == Vertice::bandera::NEGRO ){
 				if (strcmp(vecino->get_nombre().c_str(), fin.c_str()) == 0) {
-					cout << " -> " << "(id: "<< vecino->get_distancia()+1 <<") "
-						<< vecino->get_nombre() <<
-						" (ruta: " << vecino->get_ruta() << ")" << '\n';
+					cout << "\n\t\t|\n\t\tV\n" << vecino->get_distancia() <<") "
+						<< vecino->get_nombre() << " (ruta: " << vecino->get_ruta()
+						<< ")" << '\n';
 					break;
 				}
-				cout << " -> " << "(id: "<< vecino->get_distancia()+1 <<") "
-					<< vecino->get_nombre() << " (ruta: "<< vecino->get_ruta()
-					<< ")";
+				cout << "\n\t\t|\n\t\tV\n" << vecino->get_distancia() <<") "
+					<< vecino->get_nombre() << " (ruta: "<< vecino->get_ruta() << ")";
 				vecino->set_color( Vertice::bandera::VISITADO );
 				vecino->set_distancia( vertice->get_distancia() + 1 );
 				vecino->set_predecesor( vertice->get_nombre() );
@@ -99,15 +97,5 @@ void Grafo::bfs( string inicio, string fin ){
 	    }
 	  }
 		vertice->set_color( Vertice::bandera::BLANCO );
-	}
-
-	cout << '\n';
-
-	// reiniciamos stats
-
-	for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
-		(v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
-		(v->second).set_distancia( 0 );
-		(v->second).set_predecesor("Null");
 	}
 }

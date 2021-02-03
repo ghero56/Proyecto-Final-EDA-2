@@ -26,11 +26,11 @@ int serializar(void* NotUsed, int argc, char** argv, char** azColName)
   return 0;
 }
 
-void insertar( string archivo, Grafo* g){
+int insertar( string archivo, Grafo* g)
+{
   FILE* a = fopen( archivo.c_str() , "r" );
   if (a == NULL) {
-    fclose(a);
-    return;
+    return 0;
   }
 
   char nombre[80];
@@ -44,9 +44,9 @@ void insertar( string archivo, Grafo* g){
     g->add_estacion_dirigida(g->get_estacion_por_id(j) , g->get_estacion_por_id(j+1));
   }
 
-  g->bfs(g->get_estacion_por_id(1),g->get_estacion_por_id(i));
-
   fclose(a);
+
+  return i;
 }
 
 bool fileExists( string nombre )
@@ -102,7 +102,7 @@ char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg){
 }
 
 /* ---------- menu admin --------- */
-void admin( Grafo* g ){
+void admin( BDD b, Grafo* g, int max ){
   int op;
   do{
     system("clear");
@@ -116,12 +116,12 @@ void admin( Grafo* g ){
       "\n\t-> "; cin >> op;
     switch(op){
       case 1:
-        menu1( g );
+        menu1(g, max);
       break;
       case 2:
       break;
       case 3:
-        menuPtP( g );
+        menuPtP( g, max);
       break;
       case 4:
         cout << "Guardadas correctamente" << '\n';
@@ -136,7 +136,7 @@ void admin( Grafo* g ){
   }while(op != 11);
 }
 /* ---------- menu usuario --------- */
-void regular( Grafo* g ){
+void regular( BDD b, Grafo* g, int max){
   system("clear");
   int op;
   do{
@@ -148,12 +148,10 @@ void regular( Grafo* g ){
       "\n\t-> "; cin >> op;
     switch(op){
       case 1:
-        menu1( g );
+        menu1(g, max);
       break;
       case 2:
-        system("clear");
-        cout << "Mostrando estaciones actuales: [estacion(ruta a la que pertenece)]" << '\n';
-        g->bfs(g->get_estacion_por_id( 0 ),g->get_estacion_por_id(g->get_len()-1));
+        menuPtP(g, max);
       break;
       case 3:
       break;
@@ -167,36 +165,36 @@ void regular( Grafo* g ){
   }while(op != 11);
 }
 
-void menu1( Grafo* g ){
+void menu1( Grafo* g , int max){
   system("clear");
   int op;
   cout << "Mostrando estaciones actuales: [estacion(ruta a la que pertenece)]" << '\n';
   cout << "(En caso de querer elegir punto de inicio"
         " y destino presiona 1 en otro caso presiona 2)" << '\n';
-  g->bfs(g->get_estacion_por_id( 0 ),g->get_estacion_por_id(g->get_len()-1));
+  g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
   std::cout << "\n\t-> ";
   cin >> op;
   switch (op) {
     case 1:
-      menuPtP(g);
+      menuPtP(g, max);
     break;
     case 2:
     return;
   }
 }
 
-void menuPtP( Grafo* g ){
-  int inicio, fin, len = g->get_len();
-  cout << "Indica por indice la estacion inicial ( disponibles: "<< len <<")-> ";
+void menuPtP( Grafo* g , int max){
+  system("clear");
+  int inicio, fin;
+  g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
+  cout << "Indica por indice la estacion inicial ( disponibles: "<< max <<" )-> ";
   cin >> inicio;
-  inicio--;
-  if (inicio <= len && inicio >= 0) {
+  if (inicio <= max && inicio >= 0) {
     cout << "Seleccionada: " << g->get_estacion_por_id(inicio) << '\n';
   }
-  cout << "Indica por indice la estacion final ( disponibles: "<< len-1 <<")-> ";
+  cout << "Indica por indice la estacion final ( disponibles: "<< max-1 <<" )-> ";
   cin >> fin;
-  fin--;
-  if (inicio <= len && inicio >= 0 && inicio != fin) {
+  if (inicio <= max && inicio >= 0 && inicio != fin) {
     cout << "Seleccionada: " << g->get_estacion_por_id(fin) << '\n';
     g->bfs( g->get_estacion_por_id(inicio), g->get_estacion_por_id(fin));
   }else{
