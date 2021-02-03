@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <Estaciones_a_seguir>
+    <estacion>
+      <nombre>Facultad de ciencias ALUMNOS</nombre>
+      <ruta>3</ruta>
+      <id>2</id>
+    </estacion>
+    <estacion>
+      <nombre>Facultad de ciencias PROFESORES</nombre>
+      <ruta>3</ruta>
+      <id>3</id>
+    </estacion>
+    <estacion>
+      <nombre>Anexo de ingenieria</nombre>
+      <ruta>3</ruta>
+      <id>4</id>
+    </estacion>
+  </Estaciones_a_seguir>

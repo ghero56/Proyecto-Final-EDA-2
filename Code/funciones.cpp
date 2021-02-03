@@ -59,7 +59,8 @@ bool fileExists( string nombre )
   return true;
 }
 
-char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg){
+char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg)
+{
   sql = "DROP TABLE IF EXISTS RutasPumabus; "
       "CREATE TABLE RutasPumabus ("  \
       "id INTEGER PRIMARY KEY NOT NULL, " \
@@ -102,7 +103,8 @@ char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg){
 }
 
 /* ---------- menu admin --------- */
-void admin( BDD b, Grafo* g, int max ){
+void admin( BDD b, Grafo* g, int max )
+{
   int op;
   do{
     system("clear");
@@ -124,7 +126,7 @@ void admin( BDD b, Grafo* g, int max ){
         menuPtP( g, max);
       break;
       case 4:
-        cout << "Guardadas correctamente" << '\n';
+        menuPtP_save( g, max);
       break;
       case 5:
         cout << "saliendo..." << '\n';
@@ -136,7 +138,8 @@ void admin( BDD b, Grafo* g, int max ){
   }while(op != 11);
 }
 /* ---------- menu usuario --------- */
-void regular( BDD b, Grafo* g, int max){
+void regular( BDD b, Grafo* g, int max)
+{
   system("clear");
   int op;
   do{
@@ -154,6 +157,7 @@ void regular( BDD b, Grafo* g, int max){
         menuPtP(g, max);
       break;
       case 3:
+        menuPtP_save( g, max);
       break;
       case 4:
         cout << "saliendo..." << '\n';
@@ -165,10 +169,11 @@ void regular( BDD b, Grafo* g, int max){
   }while(op != 11);
 }
 
-void menu1( Grafo* g , int max){
+void menu1( Grafo* g , int max)
+{
   system("clear");
   int op;
-  cout << "Mostrando estaciones actuales: [estacion(ruta a la que pertenece)]" << '\n';
+  cout << "\nMostrando estaciones actuales: [estacion(ruta a la que pertenece)]" << '\n';
   cout << "(En caso de querer elegir punto de inicio"
         " y destino presiona 1 en otro caso presiona 2)" << '\n';
   g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
@@ -183,16 +188,17 @@ void menu1( Grafo* g , int max){
   }
 }
 
-void menuPtP( Grafo* g , int max){
+void menuPtP( Grafo* g , int max)
+{
   system("clear");
   int inicio, fin;
   g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
-  cout << "Indica por indice la estacion inicial ( disponibles: "<< max <<" )-> ";
+  cout << "\nIndica por indice la estacion inicial ( disponibles: "<< max <<" ) -> ";
   cin >> inicio;
   if (inicio <= max && inicio >= 0) {
     cout << "Seleccionada: " << g->get_estacion_por_id(inicio) << '\n';
   }
-  cout << "Indica por indice la estacion final ( disponibles: "<< max-1 <<" )-> ";
+  cout << "\nIndica por indice la estacion final ( disponibles: "<< max-1 <<" ) -> ";
   cin >> fin;
   if (inicio <= max && inicio >= 0 && inicio != fin) {
     cout << "Seleccionada: " << g->get_estacion_por_id(fin) << '\n';
@@ -206,11 +212,32 @@ void menuPtP( Grafo* g , int max){
   cin >> enter;
 }
 
-void menuPtP_save(){
-
+void menuPtP_save(Grafo* g, int max)
+{
+  system("clear");
+  int inicio, fin;
+  g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
+  cout << "\nIndica por indice la estacion inicial ( disponibles: "<< max <<" ) -> ";
+  cin >> inicio;
+  if (inicio <= max && inicio >= 0) {
+    cout << "Seleccionada: " << g->get_estacion_por_id(inicio) << '\n';
+  }
+  cout << "\nIndica por indice la estacion final ( disponibles: "<< max-1 <<" ) -> ";
+  cin >> fin;
+  if (inicio <= max && inicio >= 0 && inicio != fin) {
+    cout << "Seleccionada: " << g->get_estacion_por_id(fin) << '\n';
+    g->bfs_save( g->get_estacion_por_id(inicio), g->get_estacion_por_id(fin));
+  }else{
+    std::cout << "\nintenta nuevamente\n";
+  }
+  string enter;
+  cout << "\nRuta Guardada"
+    "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
+  cin >> enter;
 }
 
-void menu_add(){
+void menu_add()
+{
   system("clear");
 
 }

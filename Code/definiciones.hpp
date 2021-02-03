@@ -78,6 +78,7 @@ class Grafo{
 
 		void print();
 		void bfs( string, string );
+    void bfs_save( string, string );
 };
 
 /* ---------- Base de datos ---------- */
@@ -97,6 +98,7 @@ void admin( BDD, Grafo* , int );
 void regular( BDD , Grafo* , int );
 void menu1( Grafo* , int );
 void menuPtP( Grafo* , int );
+void menuPtP_save( Grafo* , int );
 void menu_add( Grafo* );
 
 #endif
