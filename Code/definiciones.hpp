@@ -70,6 +70,7 @@ class Grafo{
 
 		bool add_estacion( Vertice v );
 		bool add_estacion_dirigida( string, string );
+
     bool cambiar(string, string, int);
     int aniadir(string, int);
     bool borrar_estacion(string);

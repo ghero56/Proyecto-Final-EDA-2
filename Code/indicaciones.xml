@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <Estaciones_a_seguir>
+    <estacion>
+      <nombre>Facultad de ciencias ALUMNOS</nombre>
+      <ruta>3</ruta>
+      <id>2</id>
+    </estacion>
+    <estacion>
+      <nombre>Facultad de ciencias PROFESORES</nombre>
+      <ruta>3</ruta>
+      <id>3</id>
+    </estacion>
+    <estacion>
+      <nombre>Anexo de ingenieria</nombre>
+      <ruta>3</ruta>
+      <id>4</id>
+    </estacion>
+    <estacion>
+      <nombre>Facultad de Contaduria y Administracion</nombre>
+      <ruta>3</ruta>
+      <id>5</id>
+    </estacion>
+    <estacion>
+      <nombre>Escuela de Trabajo Social</nombre>
+      <ruta>3</ruta>
+      <id>6</id>
+    </estacion>
+    <estacion>
+      <nombre>Metrobus CU</nombre>
+      <ruta>3</ruta>
+      <id>7</id>
+    </estacion>
+    <estacion>
+      <nombre>Educacion a Distancia</nombre>
+      <ruta>3</ruta>
+      <id>8</id>
+    </estacion>
+    <estacion>
+      <nombre>D.G.T.I.C.</nombre>
+      <ruta>3</ruta>
+      <id>9</id>
+    </estacion>
+    <estacion>
+      <nombre>Posgrado_Ciencias</nombre>
+      <ruta>3</ruta>
+      <id>10</id>
+    </estacion>
+  </Estaciones_a_seguir>
