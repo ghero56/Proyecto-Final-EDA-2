@@ -111,7 +111,7 @@ void admin( BDD b, Grafo* g, int max )
   int op;
   do{
     system("clear");
-    cout << "\n\n\t\t\tBienvenido a la red PUMA "
+    cout << "\t\t\tBienvenido a la red PUMA "
       "\n\t\t\t  (MODO ADMINISTRADOR)\n"
       "\n1) Ver rutas"
       "\n2) A\u00F1adir/Modificar estaciones"
@@ -177,7 +177,7 @@ void menu1( Grafo* g , int max)
 {
   system("clear");
   int op;
-  cout << "\nMostrando estaciones actuales: [estacion(ruta a la que pertenece)]" << '\n';
+  cout << "\nMostrando estaciones actuales: [estacion (ruta a la que pertenece)]" << '\n';
   cout << "(En caso de querer elegir punto de inicio"
         " y destino presiona 1 en otro caso presiona 2)" << '\n';
   g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
@@ -250,7 +250,8 @@ int menu_add(Grafo* g, int max)
       "\n1) Ver rutas"
       "\n2) Seleccionar punto a cambiar"
       "\n3) Ingresar nueva estacion"
-      "\n4) Regresar"
+      "\n4) Eliminar estacion"
+      "\n5) Regresar"
       "\n\t-> "; cin >> op;
     switch(op){
       case 1:
@@ -259,7 +260,7 @@ int menu_add(Grafo* g, int max)
         cout << "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
         cin >> enter;
       break;
-      case 2:
+      case 2:{
         system("clear");
         g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
         cout << "\nIndica la estacion a cambiar ( disponibles: "<< max <<" ) -> ";
@@ -281,16 +282,44 @@ int menu_add(Grafo* g, int max)
          cout << "Valor fuera de rango";
         cout << "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
         cin >> enter;
-      break;
-      case 3:
-        menuPtP_save( g, max);
-      break;
-      case 4:
+      }break;
+      case 3:{
+        cout << "\nIndica el nuevo nombre: ";
+        string nuevo_nombre;
+        int ruta;
+        cin >> nuevo_nombre;
+        cout << "Indica la ruta a la que pertenece: ";
+        cin >> ruta;
+        cout << "Nueva estacion: " << nuevo_nombre <<'\n';
+        g->aniadir( nuevo_nombre , ruta);
+        cout << "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
+        cin >> enter;
+        max++;
+      }break;
+      case 4:{
+        system("clear");
+        g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
+        cout << "\nIndica la estacion a ELIMINAR ( disponibles: "<< max <<" ) -> ";
+        int estacion;
+        cin >> estacion;
+        if (estacion <= max && estacion >= 0){
+          cout << "Seleccionada: " << g->get_estacion_por_id(estacion) << "\n";
+          cout << "\nEstacion: " << g->get_estacion_por_id(estacion) << " eliminada " <<'\n';
+          g->borrar_estacion(g->get_estacion_por_id(estacion));
+          max--;
+        }
+        else
+         cout << "Valor fuera de rango";
+        cout << "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
+        cin >> enter;
+      }break;
+      case 5:
         cout << "\nsaliendo..." << '\n';
         return max;
       break;
       default:
         cout << "valor fuera de rango" << '\n';
     }
-  }while(op != 4);
+  }while(op != 5);
+  return max;
 }

@@ -13,12 +13,26 @@ bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
 	return true;
 }
 
+bool Grafo::borrar_estacion(string estacion){
+ 	BDD base;
+	base.erase(this , estacion);
+  this->vertices.erase( estacion );
+  bfs(get_estacion_por_id(1),get_estacion_por_id(10));
+	return true;
+}
+
+int Grafo::aniadir( string nuevo_nombre, int ruta ){
+ 	BDD base;
+	int i = base.add(this , nuevo_nombre , ruta);
+//  this->vertices.erase( estacion );
+  bfs(get_estacion_por_id(1),get_estacion_por_id(i));
+	return true;
+}
 
 bool Grafo::add_estacion( Vertice v )
 {
 	len++;
 	auto ret = vertices.insert( { v.get_nombre(), v } );
-	// 'map' no permite duplicados, así que no hay necesidad de buscarlos
 	return ret.second;
 }
 

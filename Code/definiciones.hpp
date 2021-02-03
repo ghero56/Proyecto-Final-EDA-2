@@ -71,12 +71,15 @@ class Grafo{
 		bool add_estacion( Vertice v );
 		bool add_estacion_dirigida( string, string );
     bool cambiar(string, string, int);
+    int aniadir(string, int);
+    bool borrar_estacion(string);
 
 		map<string, Vertice> *get_vertices();
 
 		Vertice* get_vertice( string );
     string get_estacion_por_id( int );
     int get_len();
+
 
 		void print();
 		void bfs( string, string );
@@ -89,9 +92,8 @@ class BDD{
     sqlite3* create();
   public:
     int start(Grafo*);
-    void update();
-    void erase();
-    void add();
+    int add(Grafo*, string, int);
+    int erase(Grafo*, string);
     void update(Grafo*, string, string, int);
 };
 
