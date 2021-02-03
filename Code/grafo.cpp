@@ -80,11 +80,12 @@ string Grafo::get_estacion_por_id( int id ){
 }
 
 void Grafo::bfs( string inicio, string fin ){
-	for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
-		(v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
-		(v->second).set_distancia( 0 );
-		(v->second).set_predecesor("Null");
-	}
+  for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
+    (v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
+    (v->second).set_distancia( 0 );
+    (v->second).set_predecesor("Null");
+  }
+
 
 	get_vertice( inicio )->set_color( Vertice::bandera::VISITADO );
 	deque<string> queue;

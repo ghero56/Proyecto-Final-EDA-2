@@ -144,9 +144,9 @@ void admin( BDD b, Grafo* g, int max )
 /* ---------- menu usuario --------- */
 void regular( BDD b, Grafo* g, int max)
 {
-  system("clear");
   int op;
   do{
+    system("clear");
     cout << "\n\n\t\t\tBienvenido a la red PUMA\n"
       "\n1) Ver rutas"
       "\n2) Seleccionar punto de inicio y destino"
@@ -157,16 +157,20 @@ void regular( BDD b, Grafo* g, int max)
       case 1:
         menu1(g, max);
       break;
+
       case 2:
         menuPtP(g, max);
       break;
+
       case 3:
         menuPtP_save( g, max);
       break;
+
       case 4:
         cout << "saliendo..." << '\n';
         op = 11;
       break;
+
       default:
         cout << "valor fuera de rango" << '\n';
     }

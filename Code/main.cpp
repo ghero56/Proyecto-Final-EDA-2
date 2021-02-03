@@ -9,12 +9,14 @@
 /* ---------- Funcion main --------- */
 int main(int argc, char const *argv[])
 {
+  #pragma omp master
+  {
   Grafo g;
   BDD base;
   int max = base.start( &g );
 
   if(strcmp(argv[1],"admin") == 0) admin( base, &g , max);
   else regular( base, &g , max);
-
+  }
   return 0;
 }
