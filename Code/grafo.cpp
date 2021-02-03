@@ -8,6 +8,8 @@ Grafo::Grafo()
 bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
  	BDD base;
 	base.update(this,estacion,nuevo_nombre, ruta);
+  this->vertices.erase( estacion );
+  bfs(get_estacion_por_id(1),get_estacion_por_id(10));
 	return true;
 }
 
