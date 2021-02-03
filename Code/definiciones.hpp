@@ -44,6 +44,7 @@ class Vertice{
 		void  add_vecino( Vertice );
     void  mostrar();
 	  void  print();
+    void cambiar_datos(string, int);
 
 		list<Vertice>* get_vecinos();
 
@@ -69,6 +70,7 @@ class Grafo{
 
 		bool add_estacion( Vertice v );
 		bool add_estacion_dirigida( string, string );
+    bool cambiar(string, string, int);
 
 		map<string, Vertice> *get_vertices();
 
@@ -90,7 +92,9 @@ class BDD{
     void update();
     void erase();
     void add();
+    void update(Grafo*, string, string, int);
 };
+
 int insertar( string , Grafo* );
 int serializar(void*, int, char**, char**);
 /* ---------- MENUS ---------- */
@@ -99,6 +103,6 @@ void regular( BDD , Grafo* , int );
 void menu1( Grafo* , int );
 void menuPtP( Grafo* , int );
 void menuPtP_save( Grafo* , int );
-void menu_add( Grafo* );
+int menu_add( Grafo* , int );
 
 #endif

@@ -49,6 +49,34 @@ int BDD::start(Grafo* g){
   char* zErrMsg;
   int rc;
 
+  rc = sqlite3_exec(db, sql.c_str(), serializar, 0, &zErrMsg);
+  if (rc != SQLITE_OK)
+  {
+    fprintf(stderr, "SQL error: %s\n", zErrMsg);
+    sqlite3_free(zErrMsg);
+  }
+  int i = insertar( "Ruta.csv" , g );
+
+  system("rm Ruta.csv");
+  sqlite3_close(db);
+  return i;
+}
+
+void BDD::update(Grafo* g,string n, string nn, int nr){
+  auto db = create();
+  string sql = "UPDATE RutasPumabus SET Ubicacion = '" + nn + "' WHERE id == " +
+  to_string((g->get_vertice( n ))->get_distancia()) + ";";
+  char* zErrMsg = NULL;
+  int rc;
+
+  rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
+  if (rc != SQLITE_OK)
+  {
+    fprintf(stderr, "SQL error: %s\n", zErrMsg);
+    sqlite3_free(zErrMsg);
+  }
+
+  sql = "SELECT * FROM RutasPumabus; ";
 
   rc = sqlite3_exec(db, sql.c_str(), serializar, 0, &zErrMsg);
   if (rc != SQLITE_OK)
@@ -57,20 +85,11 @@ int BDD::start(Grafo* g){
     sqlite3_free(zErrMsg);
   }
 
-  int i = insertar( "Ruta.csv" , g );
+  insertar( "Ruta.csv" , g );
 
   system("rm Ruta.csv");
+
   sqlite3_close(db);
-  return i;
-}
-
-void BDD::update(){
-  /*auto db = create();
-  string sql;
-  char* zErrMsg = NULL;
-  int rc;
-
-  sqlite3_close(db);*/
 }
 
 void BDD::erase(){

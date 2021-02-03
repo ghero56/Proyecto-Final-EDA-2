@@ -7,6 +7,11 @@ Vertice::Vertice( string nombre, int id, int ruta )
 	item.ruta = ruta;
 }
 
+void Vertice::cambiar_datos(string nn, int r){
+	this->item.nombre = nn;
+	this->item.ruta = r;
+}
+
 void Vertice::add_vecino( Vertice v )
 {
 	this->vecinos.push_back( v );

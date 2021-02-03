@@ -5,6 +5,12 @@ Grafo::Grafo()
 	// nada (por el momento)
 }
 
+bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
+ 	BDD base;
+	base.update(this,estacion,nuevo_nombre, ruta);
+	return true;
+}
+
 
 bool Grafo::add_estacion( Vertice v )
 {
@@ -46,7 +52,6 @@ int Grafo::get_len(){
 Vertice* Grafo::get_vertice( string nombre )
 {
 	auto v = this->vertices.find( nombre );
-
 	return &(v->second);
 }
 

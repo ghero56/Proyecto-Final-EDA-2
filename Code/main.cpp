@@ -13,8 +13,6 @@ int main(int argc, char const *argv[])
   BDD base;
   int max = base.start( &g );
 
-  cout << max << endl;
-
   if(strcmp(argv[1],"admin") == 0) admin( base, &g , max);
   else regular( base, &g , max);
 
