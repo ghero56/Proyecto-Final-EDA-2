@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
     BDD base; //Creamos la base de datos esta tiene por nombre "base"
     int max = base.start( &g );
     if(strcmp(argv[1],"admin") == 0) admin( base, &g , max);    //Entramos a el programa como administradot o como refular
-    else regular( base, &g , max);
+    else regular( base, &g , max); 
   }
 }
   return 0;
