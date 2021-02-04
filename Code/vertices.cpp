@@ -1,5 +1,12 @@
 #include "definiciones.hpp"
 
+/**
+*
+*@brief La siguientes funciones maneja los vertices del grafo
+*y hacer funcionar de forma correcta el grafo
+*
+*/
+
 Vertice::Vertice( string nombre, int id, int ruta )
 {
 	item.id = id;
