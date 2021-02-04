@@ -4,7 +4,15 @@ Grafo::Grafo()
 {
 	// nada (por el momento)
 }
-
+/**
+*
+*@brief Estructura basica de un grafo
+*Obtiene tres distintos datos en el interior del grafo
+*string estacion
+*string nuevo_nombre
+*int ruta
+*
+*/
 bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
  	BDD base;
 	base.update(this,estacion,nuevo_nombre, ruta);
@@ -12,7 +20,10 @@ bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
   bfs(get_estacion_por_id(1),get_estacion_por_id(10));
 	return true;
 }
-
+/**
+*
+*@brief Borra una estacion del grafo
+*/
 bool Grafo::borrar_estacion(string estacion){
  	BDD base;
 	base.erase(this , estacion);
@@ -20,7 +31,10 @@ bool Grafo::borrar_estacion(string estacion){
   bfs(get_estacion_por_id(1),get_estacion_por_id(10));
 	return true;
 }
-
+/**
+*
+*@brief Añade una estacion nueva en el grafo
+*/
 int Grafo::aniadir( string nuevo_nombre, int ruta ){
  	BDD base;
 	int i = base.add(this , nuevo_nombre , ruta);
@@ -28,7 +42,10 @@ int Grafo::aniadir( string nuevo_nombre, int ruta ){
   bfs(get_estacion_por_id(1),get_estacion_por_id(i));
 	return true;
 }
-
+/**
+*
+*@brief Las siguientes funciones se utilazan para poder maner el grafo y sus respectivos vertices
+*/
 bool Grafo::add_estacion( Vertice v )
 {
 	len++;
@@ -121,7 +138,10 @@ void Grafo::bfs( string inicio, string fin ){
 		vertice->set_color( Vertice::bandera::BLANCO );
 	}
 }
-
+/**
+*
+*@brief Genera un archivo xml para gardar las rutas de los grafos
+*/
 void Grafo::bfs_save( string inicio, string fin ){
 	FILE* archivo = fopen( "indicaciones.xml" , "w");
 
