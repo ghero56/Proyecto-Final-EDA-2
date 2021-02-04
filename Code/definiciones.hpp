@@ -2,7 +2,11 @@
 #define DEFINICIONES_H
 
 #pragma once
-/* ---------- Librerias ---------- */
+/**
+*
+*Librerias utilizadas
+*
+*/
 #include <iostream>
 #include <stdlib.h>
 #include <cstring>
@@ -18,7 +22,13 @@
 
 using namespace std;
 
-/* ---------- Clases y Estructuras ----------*/
+/**
+*
+*Clases y estructuras del grafo
+*Iniciando con los vertices y siguiendo 
+*con el grafo
+*
+*/
 typedef struct _estacion{
   int id;
   string nombre;
@@ -87,7 +97,11 @@ class Grafo{
     void bfs_save( string, string );
 };
 
-/* ---------- Base de datos ---------- */
+/**
+*
+*Clases y estructuras dela base de datos
+*
+*/
 class BDD{
   private:
     sqlite3* create();
@@ -99,8 +113,11 @@ class BDD{
 };
 
 int insertar( string , Grafo* );
-int serializar(void*, int, char**, char**);
-/* ---------- MENUS ---------- */
+/**
+*
+*Clases y estructuras del menu "Muy IMPORTANTE"
+*
+*/
 void admin( BDD, Grafo* , int );
 void regular( BDD , Grafo* , int );
 void menu1( Grafo* , int );
