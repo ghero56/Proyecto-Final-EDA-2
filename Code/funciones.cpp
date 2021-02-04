@@ -1,5 +1,9 @@
 #include "grafo.cpp"
-
+/**
+*
+*@brief Imprime la informacion en la base de datos
+*
+*/
 int callback_print(void* NotUsed, int argc, char** argv, char** azColName)
 {
   /*for (int i = 0; i < argc; i++) {
@@ -9,7 +13,12 @@ int callback_print(void* NotUsed, int argc, char** argv, char** azColName)
 
   return 0;
 }
-
+/**
+*
+*@brief Guarda la informacion de la base de datos en un archivo para
+*poder manupular esta informacion
+*
+*/
 int serializar(void* NotUsed, int argc, char** argv, char** azColName)
 {
   string extension_archivo = ".csv";
@@ -25,7 +34,11 @@ int serializar(void* NotUsed, int argc, char** argv, char** azColName)
   archivo.close();
   return 0;
 }
-
+/**
+*
+*@brief Inserta informacion en la base de datos
+*
+*/
 int insertar( string archivo, Grafo* g)
 {
   FILE* a = fopen( archivo.c_str() , "r" );
@@ -50,7 +63,11 @@ int insertar( string archivo, Grafo* g)
 
   return i;
 }
-
+/**
+*
+*@brief Comprueba la existencia del archivo
+*
+*/
 bool fileExists( string nombre )
 {
   FILE* a = fopen( nombre.c_str() , "r" );
@@ -60,6 +77,12 @@ bool fileExists( string nombre )
   fclose(a);
   return true;
 }
+
+/**
+*
+*@brief LLena de la informacion base toda la base de datos
+*
+*/
 
 char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg)
 {
@@ -105,7 +128,10 @@ char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg)
   return zErrMsg;
 }
 
-/* ---------- menu admin --------- */
+/**
+*
+*@brief Genera el menu del administrador
+*/
 void admin( BDD b, Grafo* g, int max )
 {
   int op;
@@ -141,7 +167,10 @@ void admin( BDD b, Grafo* g, int max )
     }
   }while(op != 11);
 }
-/* ---------- menu usuario --------- */
+/**
+*
+*@brief Genera el menu del usuarion general
+*/
 void regular( BDD b, Grafo* g, int max)
 {
   int op;
@@ -176,7 +205,11 @@ void regular( BDD b, Grafo* g, int max)
     }
   }while(op != 11);
 }
-
+/**
+*
+*@brief Genera un sub-menu para poder seleccionar un inicio
+*y un destino
+*/
 void menu1( Grafo* g , int max)
 {
   system("clear");
@@ -195,7 +228,10 @@ void menu1( Grafo* g , int max)
     return;
   }
 }
-
+/**
+*
+*@brief Genera un menu para el suario sea regular o administrador
+*/
 void menuPtP( Grafo* g , int max)
 {
   system("clear");
@@ -219,7 +255,11 @@ void menuPtP( Grafo* g , int max)
     "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
   cin >> enter;
 }
-
+/**
+*
+*@brief Genera un archivo xml donde te dice la ruta a seguir
+*
+*/
 void menuPtP_save(Grafo* g, int max)
 {
   system("clear");
@@ -243,7 +283,16 @@ void menuPtP_save(Grafo* g, int max)
     "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
   cin >> enter;
 }
-
+/**
+*
+*@brief Muestra el un menu a el administrador que tiene como obciones
+*ver rutra
+*Seleccionar punto a cambiar
+*Ingresar nueva estacion
+*Eliminar estacion 
+*Regresar
+*Ademas de mostrar sub-menus
+*/
 int menu_add(Grafo* g, int max)
 {
   int op;
