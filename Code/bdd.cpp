@@ -1,5 +1,9 @@
 #include "funciones.cpp"
-
+/**
+*
+*@brief Crea la base de datos y comprueba si esta existe
+*
+*/
 sqlite3* BDD::create(){
   sqlite3* db;
   if(fileExists("bdd_unam.db")){
@@ -40,6 +44,13 @@ sqlite3* BDD::create(){
   return db;
 }
 
+/**
+*
+*@brief Inserta los datos a la base de datos anteriormente creada
+*estos datos son las rutas del pumabus
+*
+*/
+
 int BDD::start(Grafo* g){
   if(fileExists("Rutas.csv")){
     system("rm Ruta.csv");
@@ -61,6 +72,12 @@ int BDD::start(Grafo* g){
   sqlite3_close(db);
   return i;
 }
+
+/**
+*
+*@brief Llena el grafo con los datos existentes
+*
+*/
 
 void BDD::update(Grafo* g,string n, string nn, int nr){
   auto db = create();
@@ -121,7 +138,11 @@ int BDD::add(Grafo* g, string nn, int nr){
   sqlite3_close(db);
   return i;
 }
-
+/**
+*
+*@brief Borra la informacion de la base de datos
+*
+*/
 int BDD::erase(Grafo* g, string estacion){
   auto db = create();
   string sql = "DELETE FROM RutasPumabus WHERE id == '" +
