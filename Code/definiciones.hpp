@@ -1,12 +1,22 @@
+/**
+ * @file definiciones.hpp
+ *
+ * @brief Define las clases y estructuras, asi como las funciones utilizadas.
+ * se incluyen librerias y se define el archivo HEAD
+ *
+ * @bug Se ha reportado un bug cuando se usa filesystem, no todas las distribuciones de linux lo tienen
+ *
+ * @authors Fernando Arciga, Fernando Rosas
+ * @date 04/02/2021
+ * @version 1.1
+ */
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 
 #pragma once
-/**
-*
-*Librerias utilizadas
-*
-*/
+
+// Librerias utilizadas
+
 #include <iostream>
 #include <stdlib.h>
 #include <cstring>
@@ -23,29 +33,28 @@
 using namespace std;
 
 /**
-*
-*Clases y estructuras del grafo
-*Iniciando con los vertices y siguiendo 
-*con el grafo
-*
+* @brief se define _estacion y se define su tipo como estacion
 */
 typedef struct _estacion{
-  int id;
+  int id; ///< lugar en la lista
   string nombre;
-  int ruta; // a la que pertenece
+  int ruta;
 } estacion;
-
+/**
+* @brief clase que se utilizara dentro del grafo, sus funciones son comentadas en
+* @see vertices.cpp
+*/
 class Vertice{
 	public:
 		enum class bandera { NEGRO, VISITADO, BLANCO };
 
 	private:
-		mutable estacion item;
+		mutable estacion item; ///<
 
-		mutable list<Vertice> vecinos;
-		int distancia{ 0 };
-		bandera color{ bandera::NEGRO };
-		mutable string predecesor{ "Null" };
+		mutable list<Vertice> vecinos; ///< lista de vecinos del mismo tipo, en lugar de una DLL
+		int distancia{ 0 }; ///< distancia entre id's el en grafo
+		bandera color{ bandera::NEGRO }; ///< variable utilizada en el bfs @see grafo.cpp
+		mutable string predecesor{ "Null" }; ///< variable sin uso de momento
 
 	public:
 		Vertice( string , int, int);
@@ -67,13 +76,17 @@ class Vertice{
 		string   get_predecesor();
     void     print_vecinos();
 };
-
+/**
+* @brief clase que se utilizara para guardar los vertices que contienen las estaciones
+* igual que en la definicion de vertice, sus metodos seran definidos en:
+* @see grafo.cpp
+*/
 class Grafo{
 	private:
-		mutable map<string, Vertice> vertices;
-		mutable map<string, int> weights;
+		mutable map<string, Vertice> vertices; ///< mapa con los vertices en memoria
+		mutable map<string, int> weights; ///< pesos/distancias entre vertices
 
-    int len = 0;
+    int len = 0; ///< longitud total del grafo
 
 	public:
 		Grafo();
@@ -91,16 +104,14 @@ class Grafo{
     string get_estacion_por_id( int );
     int get_len();
 
-
 		void print();
 		void bfs( string, string );
     void bfs_save( string, string );
 };
 
 /**
-*
-*Clases y estructuras dela base de datos
-*
+* @brief declaracion de los metodos de la base de datos
+* @see bdd.cpp
 */
 class BDD{
   private:
@@ -113,11 +124,6 @@ class BDD{
 };
 
 int insertar( string , Grafo* );
-/**
-*
-*Clases y estructuras del menu "Muy IMPORTANTE"
-*
-*/
 void admin( BDD, Grafo* , int );
 void regular( BDD , Grafo* , int );
 void menu1( Grafo* , int );

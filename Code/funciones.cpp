@@ -1,8 +1,21 @@
+/**
+ * @file funciones.cpp
+ *
+ * @brief Define los metodos sueltos al final de definiciones.hpp, y es declarado despues de grafo.cpp
+ * @see definiciones.hpp
+ * @see grafo.cpp
+ *
+ * @bug Se ha reportado un bug cuando no se borra el archivo Rutas.csv correctamente
+ *
+ * @authors Fernando Arciga, Fernando Rosas
+ * @date 04/02/2021
+ * @version 1.1
+ */
 #include "grafo.cpp"
 /**
-*
-*@brief Imprime la informacion en la base de datos
-*
+* @brief Imprime la informacion en la base de datos, actualmente fuera de uso
+* @param cantidad de argumentos, argumentos y nombre de la columna desde la base de datos
+* @return un valor cero al ser de forma correcta
 */
 int callback_print(void* NotUsed, int argc, char** argv, char** azColName)
 {
@@ -13,11 +26,12 @@ int callback_print(void* NotUsed, int argc, char** argv, char** azColName)
 
   return 0;
 }
+
 /**
-*
-*@brief Guarda la informacion de la base de datos en un archivo para
-*poder manupular esta informacion
-*
+* @brief Guarda la informacion de la base de datos en un archivo para
+* poder manipular esta informacion posteriormente
+* @param cantidad de argumentos, argumentos y nombre de la columna desde la base de datos
+* @return un valor cero al ser de forma correcta
 */
 int serializar(void* NotUsed, int argc, char** argv, char** azColName)
 {
@@ -35,9 +49,8 @@ int serializar(void* NotUsed, int argc, char** argv, char** azColName)
   return 0;
 }
 /**
-*
-*@brief Inserta informacion en la base de datos
-*
+* @brief lee un archivo (Rutas.csv) e ingresa los valores encontrados en el grafo
+* @return el tamaño del grafo
 */
 int insertar( string archivo, Grafo* g)
 {
@@ -64,9 +77,8 @@ int insertar( string archivo, Grafo* g)
   return i;
 }
 /**
-*
-*@brief Comprueba la existencia del archivo
-*
+* @brief Comprueba la existencia de un archivo
+* @return true en caso de existir
 */
 bool fileExists( string nombre )
 {
@@ -79,58 +91,61 @@ bool fileExists( string nombre )
 }
 
 /**
-*
-*@brief LLena de la informacion base toda la base de datos
-*
+* @brief (sin uso actualmente) genera la base de datos e inserta los valores genericos
+* @return regresa el apuntador para los mensajes de error
+* @see bdd.cpp
 */
-
 char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg)
 {
 
   sql = "DROP TABLE IF EXISTS RutasPumabus; "
-      "CREATE TABLE RutasPumabus ("  \
+      "CREATE TABLE RutasPumabus("  \
       "id INTEGER PRIMARY KEY NOT NULL, " \
       "Ubicacion TEXT NOT NULL, " \
       "Ruta INTEGER NOT NULL );";
 
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Metro CU ESTACION PRINCIPAL', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Metro CU ESTACION PRINCIPAL', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de ciencias ALUMNOS', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Facultad de ciencias ALUMNOS', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de ciencias PROFESORES', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Facultad de ciencias PROFESORES', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Anexo de ingenieria', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Anexo de ingenieria', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de Contaduria y Administracion', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Facultad de Contaduria y Administracion', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Escuela de Trabajo Social', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Escuela de Trabajo Social', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Metrobus CU', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Metrobus CU', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Educacion a Distancia', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Educacion a Distancia', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'D.G.T.I.C.', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'D.G.T.I.C.', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
-  sql = "INSERT INTO RutasPumabus ( 'Ubicacion', 'Ruta' ) VALUES ( 'Facultad de Ciencias', '3' );";
+  sql = "INSERT INTO RutasPumabus( Ubicacion, Ruta ) VALUES( 'Facultad de Ciencias', '3' );";
   rc = sqlite3_exec(db, sql.c_str(), callback_print, 0, &zErrMsg);
 
   return zErrMsg;
 }
 
 /**
-*
-*@brief Genera el menu del administrador
+* @brief Genera el menu del administrador
+* este menu tiene una opcion extra para agregar, quitar o modificar estaciones
+* @param b es una clase copia de la generada en main
+* @see main.cpp
+* @param g es el apuntador al grafo para guardar estaciones
+* @param max es el numero total de estaciones
 */
 void admin( BDD b, Grafo* g, int max )
 {
@@ -168,8 +183,11 @@ void admin( BDD b, Grafo* g, int max )
   }while(op != 11);
 }
 /**
-*
-*@brief Genera el menu del usuarion general
+* @brief Genera el menu del usuarion general
+* @param b es una clase copia de la generada en main
+* @see main.cpp
+* @param g es el apuntador al grafo para guardar estaciones
+* @param max es el numero total de estaciones
 */
 void regular( BDD b, Grafo* g, int max)
 {
@@ -206,9 +224,8 @@ void regular( BDD b, Grafo* g, int max)
   }while(op != 11);
 }
 /**
-*
-*@brief Genera un sub-menu para poder seleccionar un inicio
-*y un destino
+* @brief imprime las estaciones actuales
+* @post puede llevar a otro menu segun le eleccion del usuario
 */
 void menu1( Grafo* g , int max)
 {
@@ -229,13 +246,13 @@ void menu1( Grafo* g , int max)
   }
 }
 /**
-*
-*@brief Genera un menu para el suario sea regular o administrador
+* @brief Genera un menu para elegir de la lista dos puntos para mostrar el trayecto a seguir
+* @post puede o no imprimir la ruta si los datos son correctos
 */
 void menuPtP( Grafo* g , int max)
 {
   system("clear");
-  int inicio, fin;
+  int inicio, fin; ///< puntos de inicio y fin
   g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
   cout << "\nIndica por indice la estacion inicial ( disponibles: "<< max <<" ) -> ";
   cin >> inicio;
@@ -256,9 +273,7 @@ void menuPtP( Grafo* g , int max)
   cin >> enter;
 }
 /**
-*
-*@brief Genera un archivo xml donde te dice la ruta a seguir
-*
+* @brief Genera un archivo xml donde te dice la ruta a seguir siguiendo el metodo anterior
 */
 void menuPtP_save(Grafo* g, int max)
 {
@@ -284,14 +299,8 @@ void menuPtP_save(Grafo* g, int max)
   cin >> enter;
 }
 /**
-*
-*@brief Muestra el un menu a el administrador que tiene como obciones
-*ver rutra
-*Seleccionar punto a cambiar
-*Ingresar nueva estacion
-*Eliminar estacion 
-*Regresar
-*Ademas de mostrar sub-menus
+* @brief Muestra el menu a un administrador para modificar estaciones
+* @bug Se ha reportado un error al meter espacios en consola a la hora de escribir el nombre
 */
 int menu_add(Grafo* g, int max)
 {

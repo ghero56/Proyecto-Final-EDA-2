@@ -1,50 +1,65 @@
-#include "vertices.cpp"
-
-Grafo::Grafo()
-{
-	// nada (por el momento)
-}
 /**
-*
-*@brief Estructura basica de un grafo
-*Obtiene tres distintos datos en el interior del grafo
-*string estacion
-*string nuevo_nombre
-*int ruta
-*
+ * @file grafo.cpp
+ *
+ * @brief Define los metodos de la clase Grafo, despues de importar los metodos definidos en vertices
+ * @see definiciones.hpp
+ *
+ * @authors Fernando Arciga, Fernando Rosas
+ * @date 04/02/2021
+ * @version 1.1
+ */
+#include "vertices.cpp"
+/**
+* @brief cambia una estacion en la base de datos y luego la borra de entre los vertices
+* @return true, ya que el valor siempre esta en la lista
+* @see funciones.cpp
 */
+Grafo::Grafo(){
+  
+}
+
 bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
- 	BDD base;
-	base.update(this,estacion,nuevo_nombre, ruta);
-  this->vertices.erase( estacion );
+  BDD base;
+  #pragma omp sections
+  {
+    #pragma omp section
+    base.update(this,estacion,nuevo_nombre, ruta);
+    #pragma omp section
+    this->vertices.erase( estacion );
+  }
   bfs(get_estacion_por_id(1),get_estacion_por_id(10));
 	return true;
 }
 /**
-*
-*@brief Borra una estacion del grafo
+* @brief Borra una estacion del grafo y de la base de datos
+* @return true, ya que el valor siempre esta en la lista
+* @see funciones.cpp
 */
 bool Grafo::borrar_estacion(string estacion){
  	BDD base;
-	base.erase(this , estacion);
-  this->vertices.erase( estacion );
+  #pragma omp sections
+  {
+    #pragma omp section
+  	base.erase(this , estacion);
+    #pragma omp section
+    this->vertices.erase( estacion );
+  }
   bfs(get_estacion_por_id(1),get_estacion_por_id(10));
 	return true;
 }
 /**
-*
-*@brief Añade una estacion nueva en el grafo
+* @brief Añade una estacion nueva en el grafo y la base
+* @return true, ya siempre se agrega el valor
 */
 int Grafo::aniadir( string nuevo_nombre, int ruta ){
  	BDD base;
 	int i = base.add(this , nuevo_nombre , ruta);
-//  this->vertices.erase( estacion );
   bfs(get_estacion_por_id(1),get_estacion_por_id(i));
 	return true;
 }
 /**
-*
-*@brief Las siguientes funciones se utilazan para poder maner el grafo y sus respectivos vertices
+* @brief crea un nuevo vertice en el grafo y por ende aumenta su tamaño
+* @see vertices.cpp
 */
 bool Grafo::add_estacion( Vertice v )
 {
@@ -52,7 +67,11 @@ bool Grafo::add_estacion( Vertice v )
 	auto ret = vertices.insert( { v.get_nombre(), v } );
 	return ret.second;
 }
-
+/**
+* @brief crea una ruta entre punto a y b (eje1 -> eje2)
+* @see vertices.cpp
+* @return true si se logro localizar el objetivo
+*/
 bool Grafo::add_estacion_dirigida( string eje1, string eje2 ){
 	auto v1 = this->vertices.find( eje1 );
 	auto v2 = this->vertices.find( eje2 );
@@ -63,31 +82,43 @@ bool Grafo::add_estacion_dirigida( string eje1, string eje2 ){
 	}
 	return false;
 }
-
+/**
+* @brief imprime en pantalla cada uno de los valores en los vertices, comenzando por el incial
+*/
 void Grafo::print()
 {
-	for( auto v : this->vertices ){
+	for( auto v : vertices ){
 		cout << "\n" << v.second.get_nombre() << "-> ";
 		v.second.print_vecinos();
 	}
 	cout << "\n\n";
 }
-
+/**
+* @return el mapa con los vertices actuales
+*/
 map<string, Vertice>* Grafo::get_vertices()
 {
 	return &(this->vertices);
 }
-
+/**
+* return el tamaño del grafo (poco uso)
+*/
 int Grafo::get_len(){
 	return this->len;
 }
-
+/**
+* @brief obtiene un apuntador a un vertice en el grafo con el nombre especificado
+* @return el apuntador a dicho vertice
+*/
 Vertice* Grafo::get_vertice( string nombre )
 {
 	auto v = this->vertices.find( nombre );
 	return &(v->second);
 }
-
+/**
+* @brief busca por un indice en el mapa de vertices
+* @return la cadena que compone el nombre del vertice
+*/
 string Grafo::get_estacion_por_id( int id ){
 	for (auto v: this->vertices) {
 		if (v.second.get_distancia() == id) {
@@ -95,22 +126,24 @@ string Grafo::get_estacion_por_id( int id ){
 		}
 	}
 }
-
+/**
+* @brief busqueda en anchura utilizada para un grafo dirigido
+* su principal uso es buscar en los vecinos desde un punto inicial a un punto final
+* en el grafo e imprimirlo en pantalla
+*/
 void Grafo::bfs( string inicio, string fin ){
-  for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
+  for(auto v = vertices.begin() ; v != vertices.end() ; v++){
     (v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
     (v->second).set_distancia( 0 );
     (v->second).set_predecesor("Null");
   }
 
-
-	get_vertice( inicio )->set_color( Vertice::bandera::VISITADO );
-	deque<string> queue;
+  deque<string> queue;
+  get_vertice( inicio )->set_color( Vertice::bandera::VISITADO );
 	queue.push_back( inicio );
 
 	cout << "\n" << get_vertice( queue.front() )->get_distancia() << ") "
 	<<queue.front() << " (ruta: " << get_vertice( queue.front() )->get_ruta() << ")";
-	// vertice->get_nombre() << dentro del if dentro del while
 
 	while( !queue.empty() ){
 		string next_vertice = queue.front();
@@ -119,7 +152,6 @@ void Grafo::bfs( string inicio, string fin ){
 		list<Vertice>* v = vertice->get_vecinos();
 		for( auto w = v->begin(); w != v->end(); ++w ){
 			Vertice* vecino = get_vertice( w->get_nombre() );
-
 			if( vecino->get_color() == Vertice::bandera::NEGRO ){
 				if (strcmp(vecino->get_nombre().c_str(), fin.c_str()) == 0) {
 					cout << "\n\t\t|\n\t\tV\n" << vecino->get_distancia() <<") "
@@ -139,11 +171,14 @@ void Grafo::bfs( string inicio, string fin ){
 	}
 }
 /**
-*
-*@brief Genera un archivo xml para gardar las rutas de los grafos
+* @brief busqueda en anchura utilizada para un grafo dirigido
+* su principal uso es buscar en los vecinos desde un punto inicial a un punto final
+* en el grafo e imprimirlo en pantalla y generar dos archivos
+* @see indicaciones.*
 */
 void Grafo::bfs_save( string inicio, string fin ){
 	FILE* archivo = fopen( "indicaciones.xml" , "w");
+  //FILE* archivo2 = fopen( "indicaciones.txt" , "w");
 
 	for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
 		(v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
@@ -151,8 +186,8 @@ void Grafo::bfs_save( string inicio, string fin ){
 		(v->second).set_predecesor("Null");
 	}
 
-	get_vertice( inicio )->set_color( Vertice::bandera::VISITADO );
 	deque<string> queue;
+  get_vertice( inicio )->set_color( Vertice::bandera::VISITADO );
 	queue.push_back( inicio );
 
 	fputs( "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" , archivo);
