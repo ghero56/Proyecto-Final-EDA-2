@@ -1,8 +1,0 @@
-<map id="unixInodeInfo" name="unixInodeInfo">
-<area shape="rect" id="node1" title=" " alt="" coords="161,160,287,296"/>
-<area shape="rect" id="node5" href="$structunixShmNode.html" title=" " alt="" coords="50,359,163,553"/>
-<area shape="rect" id="node2" href="$structsqlite3__mutex.html" title=" " alt="" coords="5,13,120,90"/>
-<area shape="rect" id="node3" href="$structUnixUnusedFd.html" title=" " alt="" coords="153,5,271,97"/>
-<area shape="rect" id="node4" href="$structunixFileId.html" title=" " alt="" coords="373,5,459,97"/>
-<area shape="rect" id="node6" href="$structunixShm.html" title=" " alt="" coords="49,616,165,737"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="definiciones.hpp" name="definiciones.hpp">
-<area shape="rect" id="node1" title="Define las clases y estructuras, asi como las funciones utilizadas. se incluyen librerias y se define..." alt="" coords="5,5,133,32"/>
-<area shape="rect" id="node2" href="$vertices_8cpp.html" title="Define los metodos de la clase Vertice." alt="" coords="19,80,120,107"/>
-<area shape="rect" id="node3" href="$grafo_8cpp.html" title="Define los metodos de la clase Grafo, despues de importar los metodos definidos en vertices." alt="" coords="28,155,111,181"/>
-<area shape="rect" id="node4" href="$funciones_8cpp.html" title="Define los metodos sueltos al final de definiciones.hpp, y es declarado despues de grafo...." alt="" coords="13,229,125,256"/>
-<area shape="rect" id="node5" href="$bdd_8cpp.html" title="Define las funciones de la clase BDD (base de datos) este archivo incluye las definiciones sueltas en..." alt="" coords="33,304,106,331"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="driver program para ver, añadir, modificar las estaciones en una ruta del pumabus Comando para compil..." alt="" coords="28,379,111,405"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="sqlite3.h" name="sqlite3.h">
-<area shape="rect" id="node1" title=" " alt="" coords="30,5,109,32"/>
-<area shape="rect" id="node2" href="$definiciones_8hpp.html" title="Define las clases y estructuras, asi como las funciones utilizadas. se incluyen librerias y se define..." alt="" coords="5,80,133,107"/>
-<area shape="rect" id="node3" href="$vertices_8cpp.html" title="Define los metodos de la clase Vertice." alt="" coords="19,155,120,181"/>
-<area shape="rect" id="node4" href="$grafo_8cpp.html" title="Define los metodos de la clase Grafo, despues de importar los metodos definidos en vertices." alt="" coords="28,229,111,256"/>
-<area shape="rect" id="node5" href="$funciones_8cpp.html" title="Define los metodos sueltos al final de definiciones.hpp, y es declarado despues de grafo...." alt="" coords="13,304,125,331"/>
-<area shape="rect" id="node6" href="$bdd_8cpp.html" title="Define las funciones de la clase BDD (base de datos) este archivo incluye las definiciones sueltas en..." alt="" coords="33,379,106,405"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="driver program para ver, añadir, modificar las estaciones en una ruta del pumabus Comando para compil..." alt="" coords="28,453,111,480"/>
-</map>
