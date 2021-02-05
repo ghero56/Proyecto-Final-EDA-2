@@ -21,7 +21,7 @@
 sqlite3* BDD::create(){
   sqlite3* db;
   if(fileExists("bdd_unam.db")){
-    system("cp ./bdd_unam.db ./bdd_unam_backup.db");
+    system("copy .\\bdd_unam.db .\\bdd_unam_backup.db");
     int rc = sqlite3_open("bdd_unam.db", &db);
     char* zErrMsg = NULL;
 
@@ -32,7 +32,7 @@ sqlite3* BDD::create(){
       return NULL;
     }
   }else if(fileExists("bdd_unam_backup.db")){
-    system("cp ./bdd_unam_backup.db ./bdd_unam.db");
+    system("copy .\\bdd_unam_backup.db .\\bdd_unam.db");
     int rc = sqlite3_open("bdd_unam.db", &db);
     char* zErrMsg = NULL;
 
@@ -47,7 +47,7 @@ sqlite3* BDD::create(){
     string sql;
     char* zErrMsg = NULL;
     zErrMsg = crear_primer_uso(db,rc,sql,zErrMsg);
-    system("cp ./bdd_unam.db ./bdd_unam_backup.db");
+    system("copy .\\bdd_unam.db .\\bdd_unam_backup.db");
 
     if (rc != SQLITE_OK) {
       cout << "Base de Datos Error: " << sqlite3_errmsg(db) << endl;
@@ -66,7 +66,7 @@ sqlite3* BDD::create(){
 */
 int BDD::start(Grafo* g){
   if(fileExists("Rutas.csv")){
-    system("rm Ruta.csv");
+    system("del Ruta.csv");
   }
   auto db = create();
   string sql = "SELECT * FROM RutasPumabus; ";
@@ -81,7 +81,7 @@ int BDD::start(Grafo* g){
   }
   int i = insertar( "Ruta.csv" , g );
 
-  system("rm Ruta.csv");
+  system("del Ruta.csv");
   sqlite3_close(db);
   return i;
 }
@@ -117,7 +117,7 @@ void BDD::update(Grafo* g,string n, string nn, int nr){
 
   insertar( "Ruta.csv" , g );
 
-  system("rm Ruta.csv");
+  system("del Ruta.csv");
 
   sqlite3_close(db);
 }
@@ -152,7 +152,7 @@ int BDD::add(Grafo* g, string nn, int nr){
 
   int i = insertar( "Ruta.csv" , g );
 
-  system("rm Ruta.csv");
+  system("del Ruta.csv");
 
   sqlite3_close(db);
   return i;
@@ -188,7 +188,7 @@ int BDD::erase(Grafo* g, string estacion){
   insertar( "Ruta.csv" , g );
   int i = sqlite3_last_insert_rowid( db );
 
-  system("rm Ruta.csv");
+  system("del Ruta.csv");
   sqlite3_close(db);
   return i;
 }

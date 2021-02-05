@@ -67,10 +67,11 @@ int insertar( string archivo, Grafo* g)
     ++i;
   }
 
-
-  for(int j = 1; j < i; j++){
+  int j;
+  for(j = 1; j < i; j++){
     g->add_estacion_dirigida(g->get_estacion_por_id(j) , g->get_estacion_por_id(j+1));
   }
+  g->add_estacion_dirigida(g->get_estacion_por_id(j+1) , g->get_estacion_por_id(1));
 
   fclose(a);
 
@@ -89,7 +90,6 @@ bool fileExists( string nombre )
   fclose(a);
   return true;
 }
-
 /**
 * @brief genera la base de datos e inserta los valores genericos
 * @return regresa el apuntador para los mensajes de error
@@ -138,7 +138,6 @@ char* crear_primer_uso( sqlite3* db, int rc, string sql, char* zErrMsg)
 
   return zErrMsg;
 }
-
 /**
 * @brief Genera el menu del administrador
 * este menu tiene una opcion extra para agregar, quitar o modificar estaciones
@@ -151,7 +150,7 @@ void admin( BDD b, Grafo* g, int max )
 {
   int op;
   do{
-    system("clear");
+    system("cls");
     cout << "\t\t\tBienvenido a la red PUMA "
       "\n\t\t\t  (MODO ADMINISTRADOR)\n"
       "\n1) Ver estaciones"
@@ -193,7 +192,7 @@ void regular( BDD b, Grafo* g, int max)
 {
   int op;
   do{
-    system("clear");
+    system("cls");
     cout << "\n\n\t\t\tBienvenido a la red PUMA\n"
       "\n1) Ver estaciones"
       "\n2) Seleccionar punto de inicio y destino"
@@ -229,7 +228,7 @@ void regular( BDD b, Grafo* g, int max)
 */
 void menu1( Grafo* g , int max)
 {
-  system("clear");
+  system("cls");
   int op;
   cout << "\nMostrando estaciones actuales: [estacion (ruta a la que pertenece)]" << '\n';
   cout << "(En caso de querer elegir punto de inicio"
@@ -251,7 +250,7 @@ void menu1( Grafo* g , int max)
 */
 void menuPtP( Grafo* g , int max)
 {
-  system("clear");
+  system("cls");
   int inicio, fin; ///< puntos de inicio y fin
   g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
   cout << "\nIndica por indice la estacion inicial ( disponibles: "<< max <<" ) -> ";
@@ -277,7 +276,7 @@ void menuPtP( Grafo* g , int max)
 */
 void menuPtP_save(Grafo* g, int max)
 {
-  system("clear");
+  system("cls");
   int inicio, fin;
   g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
   cout << "\nIndica por indice la estacion inicial ( disponibles: "<< max <<" ) -> ";
@@ -306,7 +305,7 @@ int menu_add(Grafo* g, int max)
 {
   int op;
   do{
-    system("clear");
+    system("cls");
     string enter;
     cout << "\n\tAñadir/Modificar estaciones\n"
       "\n1) Ver estaciones"
@@ -317,13 +316,13 @@ int menu_add(Grafo* g, int max)
       "\n\t-> "; cin >> op;
     switch(op){
       case 1:
-        system("clear");
+        system("cls");
         g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
         cout << "\nPresiona cualquier tecla y luego enter para regresar..." << '\n';
         cin >> enter;
       break;
       case 2:{
-        system("clear");
+        system("cls");
         g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
         cout << "\nIndica la estacion a cambiar ( disponibles: "<< max <<" ) -> ";
         int estacion;
@@ -359,7 +358,7 @@ int menu_add(Grafo* g, int max)
         max++;
       }break;
       case 4:{
-        system("clear");
+        system("cls");
         g->bfs(g->get_estacion_por_id( 1 ),g->get_estacion_por_id(max));
         cout << "\nIndica la estacion a ELIMINAR ( disponibles: "<< max <<" ) -> ";
         int estacion;
