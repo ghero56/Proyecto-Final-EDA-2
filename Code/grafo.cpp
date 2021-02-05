@@ -10,14 +10,16 @@
  */
 #include "vertices.cpp"
 /**
+* @brief constructor del Grafo
+*/
+Grafo::Grafo(){
+
+}
+/**
 * @brief cambia una estacion en la base de datos y luego la borra de entre los vertices
 * @return true, ya que el valor siempre esta en la lista
 * @see funciones.cpp
 */
-Grafo::Grafo(){
-  
-}
-
 bool Grafo::cambiar(string estacion, string nuevo_nombre, int ruta){
   BDD base;
   #pragma omp sections
@@ -125,6 +127,7 @@ string Grafo::get_estacion_por_id( int id ){
 			return v.first;
 		}
 	}
+  return 0;
 }
 /**
 * @brief busqueda en anchura utilizada para un grafo dirigido
@@ -178,7 +181,7 @@ void Grafo::bfs( string inicio, string fin ){
 */
 void Grafo::bfs_save( string inicio, string fin ){
 	FILE* archivo = fopen( "indicaciones.xml" , "w");
-  //FILE* archivo2 = fopen( "indicaciones.txt" , "w");
+  FILE* archivo2 = fopen( "indicaciones.txt" , "w");
 
 	for(auto v = this->vertices.begin() ; v != this->vertices.end() ; v++){
 		(v->second).set_color( Vertice::bandera::NEGRO ); // sin descubir
@@ -204,6 +207,9 @@ void Grafo::bfs_save( string inicio, string fin ){
 	fputs("</id>\n", archivo);
 	fputs("    </estacion>\n", archivo);
 
+  fprintf(archivo2, "\n%d) %s (ruta: %d)", get_vertice( queue.front() )->get_distancia(),
+  queue.front().c_str(),get_vertice( queue.front() )->get_ruta());
+
 	while( !queue.empty() ){
 		string next_vertice = queue.front();
 		queue.pop_front();
@@ -225,6 +231,8 @@ void Grafo::bfs_save( string inicio, string fin ){
 					fprintf(archivo, "%d", vecino->get_distancia());
 					fputs("</id>\n", archivo);
 					fputs("    </estacion>\n", archivo);
+          fprintf(archivo2, "\n\t\t|\n\t\tV\n%d) %s (ruta: %d)", vecino->get_distancia()
+          ,vecino->get_nombre().c_str() ,vecino->get_ruta());
 					break;
 				}
 				fputs("    <estacion>\n" , archivo);
@@ -238,6 +246,8 @@ void Grafo::bfs_save( string inicio, string fin ){
 				fprintf(archivo, "%d", vecino->get_distancia());
 				fputs("</id>\n", archivo);
 				fputs("    </estacion>\n", archivo);
+        fprintf(archivo2, "\n\t\t|\n\t\tV\n%d) %s (ruta: %d)", vecino->get_distancia()
+        ,vecino->get_nombre().c_str() ,vecino->get_ruta());
 				vecino->set_color( Vertice::bandera::VISITADO );
 				vecino->set_distancia( vertice->get_distancia() + 1 );
 				vecino->set_predecesor( vertice->get_nombre() );

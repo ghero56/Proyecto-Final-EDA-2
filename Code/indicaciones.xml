@@ -35,14 +35,4 @@
       <ruta>3</ruta>
       <id>8</id>
     </estacion>
-    <estacion>
-      <nombre>D.G.T.I.C.</nombre>
-      <ruta>3</ruta>
-      <id>9</id>
-    </estacion>
-    <estacion>
-      <nombre>Posgrado_Ciencias</nombre>
-      <ruta>3</ruta>
-      <id>10</id>
-    </estacion>
   </Estaciones_a_seguir>

@@ -61,7 +61,6 @@ class Vertice{
 		string get_nombre();
 
 		void  add_vecino( Vertice );
-    void  mostrar();
 	  void  print();
     void cambiar_datos(string, int);
 

@@ -45,7 +45,8 @@ sqlite3* BDD::create(){
   }else{
     int rc = sqlite3_open("bdd_unam.db", &db);
     string sql;
-    char* zErrMsg = crear_primer_uso(db,rc,sql,zErrMsg);
+    char* zErrMsg = NULL;
+    zErrMsg = crear_primer_uso(db,rc,sql,zErrMsg);
     system("cp ./bdd_unam.db ./bdd_unam_backup.db");
 
     if (rc != SQLITE_OK) {

@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Red PUMA: Referencia de la Estructura SrcList::SrcList_item</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Red PUMA
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="structSrcList.html">SrcList</a></li><li class="navelem"><a class="el" href="structSrcList_1_1SrcList__item.html">SrcList_item</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura SrcList::SrcList_item</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagrama de colaboración para SrcList::SrcList_item:</div>
+<div class="dyncontent">
+<div class="center"><img src="structSrcList_1_1SrcList__item__coll__graph.png" border="0" usemap="#SrcList_1_1SrcList__item_coll__map" alt="Collaboration graph"/></div>
+<map name="SrcList_1_1SrcList__item_coll__map" id="SrcList_1_1SrcList__item_coll__map">
+<area shape="rect" title=" " alt="" coords="2182,300,2336,524"/>
+<area shape="rect" href="structSrcList.html" title=" " alt="" coords="2267,587,2344,679"/>
+<area shape="rect" href="structSchema.html" title=" " alt="" coords="1412,1749,1551,1899"/>
+<area shape="rect" href="structTable.html" title=" " alt="" coords="1956,1337,2079,1605"/>
+<area shape="rect" href="structTrigger.html" title=" " alt="" coords="1887,1153,1970,1275"/>
+<area shape="rect" href="structIndex.html" title=" " alt="" coords="1850,2591,1970,2815"/>
+<area shape="rect" href="structDb.html" title=" " alt="" coords="1423,2261,1540,2368"/>
+<area shape="rect" href="structExpr.html" title=" " alt="" coords="2735,1712,2823,1936"/>
+<area shape="rect" href="structAggInfo_1_1AggInfo__col.html" title=" " alt="" coords="2293,2057,2449,2179"/>
+<area shape="rect" href="structFKey.html" title=" " alt="" coords="1626,1763,1732,1885"/>
+<area shape="rect" href="structParse.html" title=" " alt="" coords="1754,3179,1884,3403"/>
+<area shape="rect" href="structVtabCtx.html" title=" " alt="" coords="1540,2664,1642,2741"/>
+<area shape="rect" href="structModule.html" title=" " alt="" coords="1211,2057,1326,2179"/>
+<area shape="rect" href="structColumn.html" title=" " alt="" coords="2626,2035,2716,2201"/>
+<area shape="rect" href="structAggInfo_1_1AggInfo__func.html" title=" " alt="" coords="2971,2407,3136,2499"/>
+<area shape="rect" href="structExprList_1_1ExprList__item.html" title=" " alt="" coords="2835,1999,3006,2237"/>
+<area shape="rect" href="structSelect.html" title=" " alt="" coords="2782,741,2920,907"/>
+<area shape="rect" href="structWindow.html" title=" " alt="" coords="3414,2591,3549,2815"/>
+<area shape="rect" href="structTriggerStep.html" title=" " alt="" coords="2270,969,2365,1091"/>
+<area shape="rect" href="structUpsert.html" title=" " alt="" coords="2038,2936,2133,3043"/>
+<area shape="rect" href="structAggInfo.html" title=" " alt="" coords="2518,2591,2659,2815"/>
+<area shape="rect" href="structFuncDef.html" title=" " alt="" coords="3240,2021,3347,2215"/>
+<area shape="rect" href="structFuncDestructor.html" title=" " alt="" coords="3234,1771,3354,1877"/>
+<area shape="rect" href="structExprList.html" title=" " alt="" coords="2551,2414,2626,2491"/>
+<area shape="rect" href="structWith_1_1Cte.html" title=" " alt="" coords="2762,2657,2846,2749"/>
+<area shape="rect" href="structWith.html" title=" " alt="" coords="2490,2951,2556,3028"/>
+<area shape="rect" href="structFKey_1_1sColMap.html" title=" " alt="" coords="1706,1425,1823,1517"/>
+<area shape="rect" href="structIdList.html" title=" " alt="" coords="1949,160,2006,237"/>
+<area shape="rect" href="structIdList_1_1IdList__item.html" title=" " alt="" coords="1909,5,2046,97"/>
+<area shape="rect" href="structVTable.html" title=" " alt="" coords="1243,2392,1355,2513"/>
+<area shape="rect" href="structsqlite3.html" title=" " alt="" coords="1226,2877,1353,3101"/>
+<area shape="rect" href="structVdbe.html" title=" " alt="" coords="1640,3524,1763,3748"/>
+<area shape="rect" href="structsqlite3__value.html" title=" " alt="" coords="1298,3193,1407,3388"/>
+<area shape="rect" href="structVdbeFrame.html" title=" " alt="" coords="1644,3825,1756,4064"/>
+<area shape="rect" href="structAuxData.html" title=" " alt="" coords="1056,3230,1169,3351"/>
+<area shape="rect" href="structVdbeCursor.html" title=" " alt="" coords="2407,3179,2562,3403"/>
+<area shape="rect" href="structVdbeOp.html" title=" " alt="" coords="2665,2914,2749,3065"/>
+<area shape="rect" href="structSubProgram.html" title=" " alt="" coords="2075,3223,2176,3359"/>
+<area shape="rect" href="structSavepoint.html" title=" " alt="" coords="46,2649,210,2756"/>
+<area shape="rect" href="structLookaside.html" title=" " alt="" coords="314,2605,418,2800"/>
+<area shape="rect" href="structsqlite3__mutex.html" title=" " alt="" coords="442,2664,556,2741"/>
+<area shape="rect" href="structsqlite3__vfs.html" title=" " alt="" coords="580,2591,714,2815"/>
+<area shape="rect" href="structsqlite3_1_1sqlite3InitInfo.html" title=" " alt="" coords="817,2620,981,2785"/>
+<area shape="rect" href="structBusyHandler.html" title=" " alt="" coords="1006,2649,1134,2756"/>
+<area shape="rect" href="structCollSeq.html" title=" " alt="" coords="1158,2635,1240,2771"/>
+<area shape="rect" href="structHash.html" title=" " alt="" coords="1074,1425,1150,1517"/>
+<area shape="rect" href="structHash_1_1__ht.html" title=" " alt="" coords="1148,1175,1231,1253"/>
+<area shape="rect" href="structHashElem.html" title=" " alt="" coords="1115,984,1203,1076"/>
+<area shape="rect" href="structsqlite3__module.html" title=" " alt="" coords="1030,1712,1152,1936"/>
+<area shape="rect" href="structsqlite3__vtab.html" title=" " alt="" coords="1053,2072,1156,2164"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:a021ffb4d9282b6ce171bd57c4da97bf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSchema.html">Schema</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a021ffb4d9282b6ce171bd57c4da97bf3">pSchema</a></td></tr>
+<tr class="separator:a021ffb4d9282b6ce171bd57c4da97bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f7bf0921794dc46d74d2546fc10f7de"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a2f7bf0921794dc46d74d2546fc10f7de">zDatabase</a></td></tr>
+<tr class="separator:a2f7bf0921794dc46d74d2546fc10f7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee5c5a84594fed8100be3cdb3e3ff1c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#afee5c5a84594fed8100be3cdb3e3ff1c">zName</a></td></tr>
+<tr class="separator:afee5c5a84594fed8100be3cdb3e3ff1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461ef8d80828ed8dd4409b9244ae2919"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a461ef8d80828ed8dd4409b9244ae2919">zAlias</a></td></tr>
+<tr class="separator:a461ef8d80828ed8dd4409b9244ae2919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8779b2d10d0e25af78ad90e57f9cd4f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTable.html">Table</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a8779b2d10d0e25af78ad90e57f9cd4f6">pTab</a></td></tr>
+<tr class="separator:a8779b2d10d0e25af78ad90e57f9cd4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44822fca7618c4f41f4f770ad41425b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSelect.html">Select</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#ab44822fca7618c4f41f4f770ad41425b">pSelect</a></td></tr>
+<tr class="separator:ab44822fca7618c4f41f4f770ad41425b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb4f55d13641e11f07c3e535fd7cf1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a1fb4f55d13641e11f07c3e535fd7cf1d">addrFillSub</a></td></tr>
+<tr class="separator:a1fb4f55d13641e11f07c3e535fd7cf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67344976677cbbdea271fcdf7be620cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a67344976677cbbdea271fcdf7be620cc">regReturn</a></td></tr>
+<tr class="separator:a67344976677cbbdea271fcdf7be620cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4886ed7e335081909c2bfdd5d04c165"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#af4886ed7e335081909c2bfdd5d04c165">regResult</a></td></tr>
+<tr class="separator:af4886ed7e335081909c2bfdd5d04c165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fdb3bb3afedc05634c4747813699c81"><td class="memItemLeft" >struct {</td></tr>
+<tr class="memitem:a9473251ed79c69def911fbeb651ddc50"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="sqlite3_8c.html#a74a0f6424ae628af25f23f0a35f6ead3">u8</a>&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a36193fe4914ddc86222e5c70d9639a00">jointype</a></td></tr>
+<tr class="separator:a9473251ed79c69def911fbeb651ddc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cfcd90c62653f1f8e0e5edff2e61ac4"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a89425af8e6428e4890c9159429c4de68">notIndexed</a>:1</td></tr>
+<tr class="separator:a6cfcd90c62653f1f8e0e5edff2e61ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220d0983554ea32662007eaa40e9a54f"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a48aea8345767ae4368d98e7af30c730a">isIndexedBy</a>:1</td></tr>
+<tr class="separator:a220d0983554ea32662007eaa40e9a54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d97c2418e07888ca1e402396e6292f"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a28f9a0f97deee6b43aa520545709240b">isTabFunc</a>:1</td></tr>
+<tr class="separator:ac4d97c2418e07888ca1e402396e6292f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8dde5ec275c5140b3af0b1756533872"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#ade505230d1944570250f0d2191ac39a3">isCorrelated</a>:1</td></tr>
+<tr class="separator:ad8dde5ec275c5140b3af0b1756533872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0971936694b60436ac6e12741cb37bf9"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#abf6f9d1f615f44c6f3e2dde9f57d77f0">viaCoroutine</a>:1</td></tr>
+<tr class="separator:a0971936694b60436ac6e12741cb37bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bdbfc5f3a4ff921aad9b3eb0006d426"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a5106ba15c1d344079efd6f8b5b4b3981">isRecursive</a>:1</td></tr>
+<tr class="separator:a1bdbfc5f3a4ff921aad9b3eb0006d426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a836fcfe924a291278d105689b7494643"><td class="memItemLeft" >&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a1b9f45ef861e36cdbe0077acda7440b0">fromDDL</a>:1</td></tr>
+<tr class="separator:a836fcfe924a291278d105689b7494643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fdb3bb3afedc05634c4747813699c81"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a0fdb3bb3afedc05634c4747813699c81">fg</a></td></tr>
+<tr class="separator:a0fdb3bb3afedc05634c4747813699c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e8aae90bd7a00b814db5a2d31f6607"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#af2e8aae90bd7a00b814db5a2d31f6607">iCursor</a></td></tr>
+<tr class="separator:af2e8aae90bd7a00b814db5a2d31f6607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525f683af2ffa8f094d941a5a4972720"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structExpr.html">Expr</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a525f683af2ffa8f094d941a5a4972720">pOn</a></td></tr>
+<tr class="separator:a525f683af2ffa8f094d941a5a4972720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ecf205dcaebad098b73c56e48ba944"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIdList.html">IdList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a38ecf205dcaebad098b73c56e48ba944">pUsing</a></td></tr>
+<tr class="separator:a38ecf205dcaebad098b73c56e48ba944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fd7e7e26995048b58006d020e8c48d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sqlite3_8c.html#afa77b629897c4457bfdc47d364ba5c3f">Bitmask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a4fd7e7e26995048b58006d020e8c48d6">colUsed</a></td></tr>
+<tr class="separator:a4fd7e7e26995048b58006d020e8c48d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3800b05f396d17ecfdcc1fd4d99564b"><td class="memItemLeft" >union {</td></tr>
+<tr class="memitem:a2055f1eadd91839d6219d5599b6120df"><td class="memItemLeft" >&#160;&#160;&#160;char *&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a7ff3bdf06f619c81673138050aa50077">zIndexedBy</a></td></tr>
+<tr class="separator:a2055f1eadd91839d6219d5599b6120df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a890f688a96bba0568629c1fa8c2381d6"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="structExprList.html">ExprList</a> *&#160;&#160;&#160;<a class="el" href="structSrcList_1_1SrcList__item.html#a3285b39352b46cfe63ac4e9d2e2acb5b">pFuncArg</a></td></tr>
+<tr class="separator:a890f688a96bba0568629c1fa8c2381d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3800b05f396d17ecfdcc1fd4d99564b"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#ae3800b05f396d17ecfdcc1fd4d99564b">u1</a></td></tr>
+<tr class="separator:ae3800b05f396d17ecfdcc1fd4d99564b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f82c4d70c773856d55a5ebe9b1cc8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIndex.html">Index</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSrcList_1_1SrcList__item.html#a33f82c4d70c773856d55a5ebe9b1cc8c">pIBIndex</a></td></tr>
+<tr class="separator:a33f82c4d70c773856d55a5ebe9b1cc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los campos</h2>
+<a id="a1fb4f55d13641e11f07c3e535fd7cf1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb4f55d13641e11f07c3e535fd7cf1d">&#9670;&nbsp;</a></span>addrFillSub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SrcList::SrcList_item::addrFillSub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fd7e7e26995048b58006d020e8c48d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fd7e7e26995048b58006d020e8c48d6">&#9670;&nbsp;</a></span>colUsed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sqlite3_8c.html#afa77b629897c4457bfdc47d364ba5c3f">Bitmask</a> SrcList::SrcList_item::colUsed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fdb3bb3afedc05634c4747813699c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fdb3bb3afedc05634c4747813699c81">&#9670;&nbsp;</a></span>fg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct { ... }  SrcList::SrcList_item::fg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b9f45ef861e36cdbe0077acda7440b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9f45ef861e36cdbe0077acda7440b0">&#9670;&nbsp;</a></span>fromDDL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::fromDDL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2e8aae90bd7a00b814db5a2d31f6607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e8aae90bd7a00b814db5a2d31f6607">&#9670;&nbsp;</a></span>iCursor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SrcList::SrcList_item::iCursor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade505230d1944570250f0d2191ac39a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade505230d1944570250f0d2191ac39a3">&#9670;&nbsp;</a></span>isCorrelated</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::isCorrelated</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48aea8345767ae4368d98e7af30c730a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48aea8345767ae4368d98e7af30c730a">&#9670;&nbsp;</a></span>isIndexedBy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::isIndexedBy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5106ba15c1d344079efd6f8b5b4b3981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5106ba15c1d344079efd6f8b5b4b3981">&#9670;&nbsp;</a></span>isRecursive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::isRecursive</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28f9a0f97deee6b43aa520545709240b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f9a0f97deee6b43aa520545709240b">&#9670;&nbsp;</a></span>isTabFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::isTabFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36193fe4914ddc86222e5c70d9639a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36193fe4914ddc86222e5c70d9639a00">&#9670;&nbsp;</a></span>jointype</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sqlite3_8c.html#a74a0f6424ae628af25f23f0a35f6ead3">u8</a> SrcList::SrcList_item::jointype</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89425af8e6428e4890c9159429c4de68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89425af8e6428e4890c9159429c4de68">&#9670;&nbsp;</a></span>notIndexed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::notIndexed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3285b39352b46cfe63ac4e9d2e2acb5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3285b39352b46cfe63ac4e9d2e2acb5b">&#9670;&nbsp;</a></span>pFuncArg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structExprList.html">ExprList</a>* SrcList::SrcList_item::pFuncArg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33f82c4d70c773856d55a5ebe9b1cc8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f82c4d70c773856d55a5ebe9b1cc8c">&#9670;&nbsp;</a></span>pIBIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIndex.html">Index</a>* SrcList::SrcList_item::pIBIndex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a525f683af2ffa8f094d941a5a4972720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525f683af2ffa8f094d941a5a4972720">&#9670;&nbsp;</a></span>pOn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structExpr.html">Expr</a>* SrcList::SrcList_item::pOn</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a021ffb4d9282b6ce171bd57c4da97bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021ffb4d9282b6ce171bd57c4da97bf3">&#9670;&nbsp;</a></span>pSchema</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSchema.html">Schema</a>* SrcList::SrcList_item::pSchema</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab44822fca7618c4f41f4f770ad41425b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab44822fca7618c4f41f4f770ad41425b">&#9670;&nbsp;</a></span>pSelect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSelect.html">Select</a>* SrcList::SrcList_item::pSelect</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8779b2d10d0e25af78ad90e57f9cd4f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8779b2d10d0e25af78ad90e57f9cd4f6">&#9670;&nbsp;</a></span>pTab</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTable.html">Table</a>* SrcList::SrcList_item::pTab</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38ecf205dcaebad098b73c56e48ba944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ecf205dcaebad098b73c56e48ba944">&#9670;&nbsp;</a></span>pUsing</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIdList.html">IdList</a>* SrcList::SrcList_item::pUsing</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4886ed7e335081909c2bfdd5d04c165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4886ed7e335081909c2bfdd5d04c165">&#9670;&nbsp;</a></span>regResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SrcList::SrcList_item::regResult</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67344976677cbbdea271fcdf7be620cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67344976677cbbdea271fcdf7be620cc">&#9670;&nbsp;</a></span>regReturn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SrcList::SrcList_item::regReturn</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3800b05f396d17ecfdcc1fd4d99564b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3800b05f396d17ecfdcc1fd4d99564b">&#9670;&nbsp;</a></span>u1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... }  SrcList::SrcList_item::u1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf6f9d1f615f44c6f3e2dde9f57d77f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6f9d1f615f44c6f3e2dde9f57d77f0">&#9670;&nbsp;</a></span>viaCoroutine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned SrcList::SrcList_item::viaCoroutine</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a461ef8d80828ed8dd4409b9244ae2919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461ef8d80828ed8dd4409b9244ae2919">&#9670;&nbsp;</a></span>zAlias</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* SrcList::SrcList_item::zAlias</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f7bf0921794dc46d74d2546fc10f7de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f7bf0921794dc46d74d2546fc10f7de">&#9670;&nbsp;</a></span>zDatabase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* SrcList::SrcList_item::zDatabase</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ff3bdf06f619c81673138050aa50077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff3bdf06f619c81673138050aa50077">&#9670;&nbsp;</a></span>zIndexedBy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* SrcList::SrcList_item::zIndexedBy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afee5c5a84594fed8100be3cdb3e3ff1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee5c5a84594fed8100be3cdb3e3ff1c">&#9670;&nbsp;</a></span>zName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* SrcList::SrcList_item::zName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li><a class="el" href="sqlite3_8c.html">sqlite3.c</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

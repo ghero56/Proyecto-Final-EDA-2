@@ -1,0 +1,20 @@
+
+2) Facultad de ciencias ALUMNOS (ruta: 3)
+		|
+		V
+3) Facultad de ciencias PROFESORES (ruta: 3)
+		|
+		V
+4) Anexo de ingenieria (ruta: 3)
+		|
+		V
+5) Facultad de Contaduria y Administracion (ruta: 3)
+		|
+		V
+6) Escuela de Trabajo Social (ruta: 3)
+		|
+		V
+7) Metrobus CU (ruta: 3)
+		|
+		V
+8) Educacion a Distancia (ruta: 3)

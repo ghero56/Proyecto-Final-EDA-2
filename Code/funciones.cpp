@@ -62,7 +62,7 @@ int insertar( string archivo, Grafo* g)
   char nombre[80];
   int id, ruta; int i = 0;
 
-  while(fscanf( a, "%d, %79[^,], %d\n", &id, &nombre, &ruta ) != EOF){
+  while(fscanf( a, "%d, %79[^,], %d\n", &id, nombre, &ruta ) != EOF){
     g->add_estacion( Vertice( nombre , id, ruta) );
     ++i;
   }
@@ -91,7 +91,7 @@ bool fileExists( string nombre )
 }
 
 /**
-* @brief (sin uso actualmente) genera la base de datos e inserta los valores genericos
+* @brief genera la base de datos e inserta los valores genericos
 * @return regresa el apuntador para los mensajes de error
 * @see bdd.cpp
 */
@@ -154,7 +154,7 @@ void admin( BDD b, Grafo* g, int max )
     system("clear");
     cout << "\t\t\tBienvenido a la red PUMA "
       "\n\t\t\t  (MODO ADMINISTRADOR)\n"
-      "\n1) Ver rutas"
+      "\n1) Ver estaciones"
       "\n2) A\u00F1adir/Modificar estaciones"
       "\n3) Seleccionar punto de inicio y destino"
       "\n4) Guardar indicaciones"
@@ -195,7 +195,7 @@ void regular( BDD b, Grafo* g, int max)
   do{
     system("clear");
     cout << "\n\n\t\t\tBienvenido a la red PUMA\n"
-      "\n1) Ver rutas"
+      "\n1) Ver estaciones"
       "\n2) Seleccionar punto de inicio y destino"
       "\n3) Guardar indicaciones"
       "\n4) Salir"
@@ -309,7 +309,7 @@ int menu_add(Grafo* g, int max)
     system("clear");
     string enter;
     cout << "\n\tAñadir/Modificar estaciones\n"
-      "\n1) Ver rutas"
+      "\n1) Ver estaciones"
       "\n2) Seleccionar punto a cambiar"
       "\n3) Ingresar nueva estacion"
       "\n4) Eliminar estacion"
@@ -346,7 +346,7 @@ int menu_add(Grafo* g, int max)
         cin >> enter;
       }break;
       case 3:{
-        cout << "\nIndica el nuevo nombre: ";
+        cout << "\nIndica el nuevo nombre (no se admiten espacios): ";
         string nuevo_nombre;
         int ruta;
         cin >> nuevo_nombre;

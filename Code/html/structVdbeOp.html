@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Red PUMA: Referencia de la Estructura VdbeOp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Red PUMA
+   &#160;<span id="projectnumber">1.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura VdbeOp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagrama de colaboración para VdbeOp:</div>
+<div class="dyncontent">
+<div class="center"><img src="structVdbeOp__coll__graph.png" border="0" usemap="#VdbeOp_coll__map" alt="Collaboration graph"/></div>
+<map name="VdbeOp_coll__map" id="VdbeOp_coll__map">
+<area shape="rect" title=" " alt="" coords="498,5,582,156"/>
+<area shape="rect" href="structVdbe.html" title=" " alt="" coords="357,461,480,685"/>
+<area shape="rect" href="structVdbeFrame.html" title=" " alt="" coords="113,1696,225,1935"/>
+<area shape="rect" href="structSubProgram.html" title=" " alt="" coords="343,219,444,355"/>
+<area shape="rect" href="unionVdbeOp_1_1p4union.html" title=" " alt="" coords="1001,1733,1135,1898"/>
+<area shape="rect" href="structsqlite3__value.html" title=" " alt="" coords="1123,1079,1232,1273"/>
+<area shape="rect" href="structsqlite3.html" title=" " alt="" coords="1566,777,1693,1001"/>
+<area shape="rect" href="structsqlite3__context.html" title=" " alt="" coords="1007,1439,1129,1560"/>
+<area shape="rect" href="structKeyInfo.html" title=" " alt="" coords="740,1108,847,1244"/>
+<area shape="rect" href="structBtree.html" title=" " alt="" coords="1354,1093,1489,1259"/>
+<area shape="rect" href="structParse.html" title=" " alt="" coords="1831,3395,1961,3619"/>
+<area shape="rect" href="structVTable.html" title=" " alt="" coords="2087,1115,2199,1237"/>
+<area shape="rect" href="structAuxData.html" title=" " alt="" coords="65,226,178,347"/>
+<area shape="rect" href="structVdbeCursor.html" title=" " alt="" coords="548,1387,703,1611"/>
+<area shape="rect" href="structCollSeq.html" title=" " alt="" coords="659,505,741,641"/>
+<area shape="rect" href="structDb.html" title=" " alt="" coords="1517,2063,1635,2170"/>
+<area shape="rect" href="structAggInfo.html" title=" " alt="" coords="1965,2497,2107,2721"/>
+<area shape="rect" href="structExpr.html" title=" " alt="" coords="2516,1703,2604,1927"/>
+<area shape="rect" href="structExprList.html" title=" " alt="" coords="2299,2343,2373,2420"/>
+<area shape="rect" href="structTable.html" title=" " alt="" coords="2081,1365,2204,1633"/>
+<area shape="rect" href="structTriggerStep.html" title=" " alt="" coords="2801,3027,2895,3148"/>
+<area shape="rect" href="structSelect.html" title=" " alt="" coords="2805,2799,2942,2964"/>
+<area shape="rect" href="structWindow.html" title=" " alt="" coords="2821,2497,2955,2721"/>
+<area shape="rect" href="structIndex.html" title=" " alt="" coords="1461,2497,1581,2721"/>
+<area shape="rect" href="structExprList_1_1ExprList__item.html" title=" " alt="" coords="2407,1997,2577,2236"/>
+<area shape="rect" href="structColumn.html" title=" " alt="" coords="2096,2034,2187,2199"/>
+<area shape="rect" href="structTrigger.html" title=" " alt="" coords="2680,3211,2763,3332"/>
+<area shape="rect" href="structSchema.html" title=" " alt="" coords="1781,1740,1920,1891"/>
+<area shape="rect" href="structFKey.html" title=" " alt="" coords="3363,3446,3469,3567"/>
+<area shape="rect" href="structModule.html" title=" " alt="" coords="3208,1755,3323,1876"/>
+<area shape="rect" href="structVtabCtx.html" title=" " alt="" coords="3003,1777,3106,1854"/>
+<area shape="rect" href="structHash.html" title=" " alt="" coords="2231,527,2307,619"/>
+<area shape="rect" href="structHash_1_1__ht.html" title=" " alt="" coords="2228,248,2311,325"/>
+<area shape="rect" href="structHashElem.html" title=" " alt="" coords="2156,35,2244,127"/>
+<area shape="rect" href="structFKey_1_1sColMap.html" title=" " alt="" coords="3395,3225,3512,3317"/>
+<area shape="rect" href="structIdList.html" title=" " alt="" coords="2671,2843,2729,2920"/>
+<area shape="rect" href="structWith.html" title=" " alt="" coords="2260,2571,2327,2648"/>
+<area shape="rect" href="structSrcList.html" title=" " alt="" coords="3131,2563,3208,2655"/>
+<area shape="rect" href="structFuncDef.html" title=" " alt="" coords="987,476,1093,671"/>
+<area shape="rect" href="unionsqlite3__value_1_1MemValue.html" title=" " alt="" coords="1080,829,1267,950"/>
+<area shape="rect" href="structFuncDestructor.html" title=" " alt="" coords="980,233,1100,340"/>
+<area shape="rect" href="structsqlite3__module.html" title=" " alt="" coords="3192,461,3315,685"/>
+<area shape="rect" href="structsqlite3__vtab.html" title=" " alt="" coords="3134,843,3237,935"/>
+<area shape="rect" href="structSavepoint.html" title=" " alt="" coords="1247,520,1411,627"/>
+<area shape="rect" href="structLookaside.html" title=" " alt="" coords="2335,476,2439,671"/>
+<area shape="rect" href="structLookasideSlot.html" title=" " alt="" coords="2335,248,2447,325"/>
+<area shape="rect" href="structsqlite3__mutex.html" title=" " alt="" coords="1515,535,1629,612"/>
+<area shape="rect" href="structsqlite3__vfs.html" title=" " alt="" coords="1653,461,1787,685"/>
+<area shape="rect" href="structsqlite3_1_1sqlite3InitInfo.html" title=" " alt="" coords="1890,491,2054,656"/>
+<area shape="rect" href="structBusyHandler.html" title=" " alt="" coords="2079,520,2207,627"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionVdbeOp_1_1p4union.html">p4union</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:ae12a8e7a8f5f7ba39fa379c9ad287837"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sqlite3_8c.html#a74a0f6424ae628af25f23f0a35f6ead3">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#ae12a8e7a8f5f7ba39fa379c9ad287837">opcode</a></td></tr>
+<tr class="separator:ae12a8e7a8f5f7ba39fa379c9ad287837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124dee58d3e0d73c7dfaf811a3311023"><td class="memItemLeft" align="right" valign="top">signed char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#a124dee58d3e0d73c7dfaf811a3311023">p4type</a></td></tr>
+<tr class="separator:a124dee58d3e0d73c7dfaf811a3311023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6262866780a8408c5f85b93117064fe3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sqlite3_8c.html#a20f2299e322dcbde37cb07b16910b843">u16</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#a6262866780a8408c5f85b93117064fe3">p5</a></td></tr>
+<tr class="separator:a6262866780a8408c5f85b93117064fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17c8326a1e3ac5612d4aaaa88f383b3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#a17c8326a1e3ac5612d4aaaa88f383b3b">p1</a></td></tr>
+<tr class="separator:a17c8326a1e3ac5612d4aaaa88f383b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba021fa9d30343c16794d9b76d8bffcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#aba021fa9d30343c16794d9b76d8bffcd">p2</a></td></tr>
+<tr class="separator:aba021fa9d30343c16794d9b76d8bffcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ef3319da20d5423b8cc5da6995d193"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#ad7ef3319da20d5423b8cc5da6995d193">p3</a></td></tr>
+<tr class="separator:ad7ef3319da20d5423b8cc5da6995d193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9122d4716130f257434eb1edb1ec0c"><td class="memItemLeft" align="right" valign="top">union <a class="el" href="unionVdbeOp_1_1p4union.html">VdbeOp::p4union</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVdbeOp.html#adc9122d4716130f257434eb1edb1ec0c">p4</a></td></tr>
+<tr class="separator:adc9122d4716130f257434eb1edb1ec0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los campos</h2>
+<a id="ae12a8e7a8f5f7ba39fa379c9ad287837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12a8e7a8f5f7ba39fa379c9ad287837">&#9670;&nbsp;</a></span>opcode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sqlite3_8c.html#a74a0f6424ae628af25f23f0a35f6ead3">u8</a> VdbeOp::opcode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17c8326a1e3ac5612d4aaaa88f383b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c8326a1e3ac5612d4aaaa88f383b3b">&#9670;&nbsp;</a></span>p1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int VdbeOp::p1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba021fa9d30343c16794d9b76d8bffcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba021fa9d30343c16794d9b76d8bffcd">&#9670;&nbsp;</a></span>p2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int VdbeOp::p2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7ef3319da20d5423b8cc5da6995d193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7ef3319da20d5423b8cc5da6995d193">&#9670;&nbsp;</a></span>p3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int VdbeOp::p3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc9122d4716130f257434eb1edb1ec0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc9122d4716130f257434eb1edb1ec0c">&#9670;&nbsp;</a></span>p4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union <a class="el" href="unionVdbeOp_1_1p4union.html">VdbeOp::p4union</a> VdbeOp::p4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a124dee58d3e0d73c7dfaf811a3311023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a124dee58d3e0d73c7dfaf811a3311023">&#9670;&nbsp;</a></span>p4type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">signed char VdbeOp::p4type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6262866780a8408c5f85b93117064fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6262866780a8408c5f85b93117064fe3">&#9670;&nbsp;</a></span>p5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sqlite3_8c.html#a20f2299e322dcbde37cb07b16910b843">u16</a> VdbeOp::p5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li><a class="el" href="sqlite3_8c.html">sqlite3.c</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
