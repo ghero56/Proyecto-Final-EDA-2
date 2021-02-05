@@ -1,2 +1,4 @@
 compilar primero gcc -c sqlite3.c y despues usar:
 g++ -Wall -std=c++11 -o main.out sqlite3.c main.cpp -ldl -pthread -fopenmp
+
+al ejecutar siempre poner un segundo argumento, el que sea o "admin" sin comillas
